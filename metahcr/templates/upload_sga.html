@@ -1,0 +1,60 @@
+<div class="instructions">
+    Step 1. Choose and open (verify) a single gene analysis file.
+    <br>
+    <br>
+    <form id="sga-upload-form" action='/sga_upload'
+          method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ sga_form }}
+        </table>
+        <br>
+        <input type="button" value="Verify" onclick="sga_submit_form()" style="margin-right: auto"/>
+    </form>
+</div>
+<div class="instructions">
+    Step 2. Examine sample names. Click on Upload to begin upload.
+    <br>
+    <br>
+    Samples present in the analysis file: <span style="font-weight: bold">{{ sga_upload_file }}</span>
+    <br/>
+        <div style="width:100%;height:100%;">
+            <ul id="sga-sample-names" class="easyui-datalist" title="Sample Names"
+                style="height:200px;" lines=true>
+                {% if sample_names %}
+                    {% for sample_name in sample_names %}
+                        <li value="{{ sample_name }}">{{ sample_name }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li value="">Open an analysis file.</li>
+                {% endif %}
+            </ul>
+        </div>
+        <br>
+        <input type="button" value="Upload" onclick='sga_upload_samples({{ sample_names|length }})'
+               style="margin-right: auto"/>
+    <br>
+    <div id='sga-loading-image' style="width:120px;height:120px;display:none">
+        <img src="/static/images/spinner.gif"/>
+    </div>
+</div>
+<div class="instructions">
+    Step 3. Examine the upload log file.
+    <br>
+    <br>
+    <a id='sga-upload-log-file' href="sga_upload/log_file/{{ sga_upload_log_filename }}"
+       class="easyui-linkbutton"
+       data-options="disabled:
+                                 {% if sga_upload_log_filename %}
+                                 false
+                                 {% else %}
+                                 true
+                                 {% endif %}
+                                ">Download SGA log file.</a>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#sga-sample-names').datalist();
+        $('#sga-upload-log-file').linkbutton();
+    })
+</script>

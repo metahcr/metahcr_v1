@@ -1,0 +1,57 @@
+<div class="instructions">
+    Step 1. Locate and choose the three metagenome analysis files - scaffold, gene function and rna. Press the Verify
+    button to preload and verify these files.
+    <br>
+    <br>
+    <form id="mga-upload-form" action='/mga_upload'
+          method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ mga_form }}
+        </table>
+        <br>
+        <input type="button" value="Verify" onclick="mga_submit_form()" style="margin-right: auto"/>
+    </form>
+    {% if mga_upload_scaffold_filename %}
+        <br>
+        The following three files will be used:
+        <br>
+        <ol>
+        <li>Scaffold: {{ mga_upload_scaffold_filename }}</li>
+        <li>Gene: {{ mga_upload_gene_function_filename }}</li>
+        <li>RNA: {{ mga_upload_rna_filename }}</li>
+        </ol>
+
+    {% endif %}
+</div>
+<div class="instructions">
+    Step 2. Select a sample from the list to the left. Click on Upload to begin reading the analysis files and creating
+    the analysis.
+    <br>
+    <br>
+    <input type="button" value="Upload" onclick='mga_upload_analysis()'
+           style="margin-right: auto"/>
+    <br>
+    <div id='mga-loading-image' style="width:120px;height:120px;display:none">
+        <img src="/static/images/spinner.gif"/>
+    </div>
+</div>
+<div class="instructions">
+    Step 3. Examine the upload log file.
+    <br>
+    <br>
+    <a id='mga-upload-log-file' href="mga_upload/log_file/{{ mga_upload_log_filename }}"
+       class="easyui-linkbutton"
+       data-options="disabled:
+                                 {% if mga_upload_log_filename %}
+                                 false
+                                 {% else %}
+                                 true
+                                 {% endif %}
+                                ">Download the MGA log file.</a>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#mga-upload-log-file').linkbutton();
+    })
+</script>

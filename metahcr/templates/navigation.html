@@ -1,0 +1,27 @@
+<div id="navigation" class="easyui-panel" data-options="width:'99%'">
+    <a href="{% url "home" %}"
+       id="home-menu-button"
+       class="easyui-linkbutton"
+       data-options="plain: false, iconCls: 'icon-house'">Home</a>
+    <a href="{% url "browse" %}"
+       id="browse-menu-button"
+       class="easyui-linkbutton"
+       data-options="plain: false, iconCls: 'icon-browse'">Browse</a>
+    <a href="{% url "search" %}"
+       id="search-menu-button"
+       class="easyui-linkbutton"
+       data-options="plain: false, iconCls: 'icon-zoom'">Search</a>
+    <a href="{% url "database" %}"
+       id="database-menu-button"
+       class="easyui-linkbutton"
+       data-options="plain: false, iconCls: 'icon-database'">Database</a>
+    {% if user.is_staff %}
+        <a href="/admin"
+           class="easyui-linkbutton"
+           data-options="plain: false, iconCls: 'icon-suit'">Admin</a>
+    {% else %}
+        <a href="#"
+           class="easyui-linkbutton"
+           data-options="disabled: true, plain: false, iconCls: 'icon-suit'">Admin</a>
+    {% endif %}
+</div>

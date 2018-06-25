@@ -1,0 +1,529 @@
+{% extends "base.html" %}
+{% block content %}
+    <div id="outer-accordion"
+         class="easyui-accordion"
+         style="width: 100%"
+         data-options="multiple:true,selected:false">
+        <div title="Searching Criteria"
+             style="overflow: auto; padding: 10px;"
+             data-options="
+                selected: true,
+                minimized:false,
+                collapsed:true
+                ">
+            <div id="search-criteria-tabs" class="easyui-tabs">
+                <div title="Investigations">
+                    <table id="investigation-filters"
+                           style="width:100%; height:auto"
+                           class="easyui-datagrid"
+                           toolbar="#investigation-toolbar"
+                           singleSelect="true"
+                           data-options="
+                            fitColumns: true,
+                            singleSelect: true,
+                            toolbar: 'investigation-toolbar',
+                            onClickRow: onClickInvestigationRow
+                        ">
+                        <thead>
+                        <tr>
+                            <th data-options= "
+                                field: 'entity_value',
+                                width: '20%',
+                                formatter: function(value, row) {
+                                    return row.entity_text;
+                                },
+                                editor:{type: 'combobox',
+                                        options: {
+                                            onSelect: function(rec){
+                                                  retrieve_filter_attributes('investigation', rec);
+                                                },
+                                            required: true,
+                                            valueField:'value',
+                                            textField: 'label',
+                                            data: [{
+                                                label: 'Investigation',
+                                                value: 'investigation'},
+                                                {label: 'Hydrocarbon Resource',
+                                                 value: 'hydrocarbon_resource'}
+                                                ]}}">Entity</th>
+                            <th data-options="
+                            field: 'attribute_value',
+                            width: '32%',
+                            formatter: function(value, row) {
+                                    return row.attribute_text;
+                                },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        onSelect: function(rec) {
+                                                retrieve_filter_values('investigation', rec);
+                                            },
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: []}}">
+                                Attribute
+                            </th>
+                            <th data-options="
+                            field:'operator_value',
+                            width: '8%',
+                            formatter: function(value, row) {
+                                return row.operator_text;
+                            },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: []}}">
+                                Operator
+                            </th>
+                            <th data-options="
+                            field:'value_value',
+                            width: '32%',
+                            formatter: function(value, row) {
+                                return row.value_text;
+                            },
+                            keyHandler: {
+                                enter: function(e) { alert('enter'); }
+                                },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: []}}">
+                                Value
+                            </th>
+                            <th data-options="
+                            field:'connector_value',
+                            width: '8%',
+                            formatter: function(value, row) {
+                                return row.connector_text;
+                            },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: [{value: 'AND', text: 'and'},
+                                               {value: 'OR', text: 'or'}]}}">
+                                Connector
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div id="investigation-toolbar">
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-add" plain="true"
+                           onclick="addFilter('investigation')">Add</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-remove" plain="true"
+                           onclick="removeFilter('investigation')">Remove</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-undo" plain="true"
+                           onclick="rejectFilter('investigation')">Cancel</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-search" plain="true"
+                           onclick="searchFilters('investigation')">Search!</a>
+                    </div>
+                </div>
+                <div title="Samples">
+                    <table id="sample-filters"
+                           style="width:100%; height:auto"
+                           class="easyui-datagrid"
+                           toolbar="#sample-toolbar"
+                           singleSelect="true"
+                           data-options="
+                            fitColumns: true,
+                            singleSelect: true,
+                            toolbar: 'sample-toolbar',
+                            onClickRow: onClickSampleRow
+                        ">
+                        <thead>
+                        <tr>
+                            <th data-options= "
+                                field: 'entity_value',
+                                width: '20%',
+                                formatter: function(value, row) {
+                                    return row.entity_text;
+                                },
+                                editor:{type: 'combobox',
+                                        options: {
+                                            onSelect: function(rec){
+                                                  retrieve_filter_attributes('sample', rec);
+                                                },
+                                            required: true,
+                                            valueField:'value',
+                                            textField: 'label',
+                                            data: [{
+                                                label: 'Sample',
+                                                value: 'sample'},
+                                                {label: 'Environment',
+                                                 value: 'environment'},
+                                                {label: 'Hydrocarbon Chemistry',
+                                                 value: 'hydrocarbonchemistry'},
+                                                {label: 'Water Chemistry',
+                                                 value: 'waterchemistry'},
+                                                {label: 'Production Data',
+                                                 value: 'productiondataattimeofsampling'}
+                                                 ]}}">Entity</th>
+                            <th data-options="
+                            field: 'attribute_value',
+                            width: '32%',
+                            formatter: function(value, row) {
+                                return row.attribute_text;
+                            },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        onSelect: function(rec) {
+                                                retrieve_filter_values('sample', rec);
+                                            },
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: []}}">
+                                Attribute
+                            </th>
+                            <th data-options="
+                            field:'operator_value',
+                            width: '8%',
+                            formatter: function(value, row) {
+                                return row.operator_text;
+                            },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: []}}">
+                                Operator
+                            </th>
+                            <th data-options="
+                            field:'value_value',
+                            width: '32%',
+                            formatter: function(value, row) {
+                                return row.value_text;
+                            },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: []}}">
+                                Value
+                            </th>
+                            <th data-options="
+                            field:'connector_value',
+                            width: '8%',
+                            formatter: function(value, row) {
+                                return row.connector_text;
+                            },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: [{value: 'AND', text: 'and'},
+                                               {value: 'OR', text: 'or'}]}}">
+                                Connector
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div id="sample-toolbar">
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-add" plain="true"
+                           onclick="addFilter('sample')">Add</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-remove" plain="true"
+                           onclick="removeFilter('sample')">Remove</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-undo" plain="true"
+                           onclick="rejectFilter('sample')">Cancel</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-search" plain="true"
+                           onclick="searchFilters('sample')">Search!</a>
+                    </div>
+                </div>
+                <div title="Organisms">
+                    <table id="organism-filters" style="width:100%; height:auto"
+                           class="easyui-datagrid"
+                           toolbar="#organism-toolbar"
+                           singleSelect="true"
+                           data-options="
+                            fitColumns: true,
+                            singleSelect: true,
+                            toolbar: 'organism-toolbar',
+                            onClickRow: onClickOrganismRow
+                        ">
+                        <thead>
+                        <tr>
+                            <th data-options= "
+                                field: 'entity_value',
+                                width: '20%',
+                                formatter: function(value, row) {
+                                    return row.entity_text;
+                                },
+                                editor:{type: 'combobox',
+                                        options: {
+                                            onSelect: function(rec){
+                                                  retrieve_filter_attributes('organism', rec);
+                                                },
+                                            required: true,
+                                            valueField:'value',
+                                            textField: 'label',
+                                            data: [
+                                                {label: 'Organism',
+                                                value: 'organism'},
+                                                {label: 'Metabolism Type',
+                                                 value: 'metabolismtype'}
+                                                 ]}}">Entity</th>
+                            <th data-options="
+                            field: 'attribute_value',
+                            width: '32%',
+                            formatter: function(value, row) {
+                                return row.attribute_text;
+                            },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        onSelect: function(rec) {
+                                                retrieve_filter_values('organism', rec);
+                                            },
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: []}}">
+                                Attribute
+                            </th>
+                            <th data-options="
+                            field:'operator_value',
+                            width: '8%',
+                            formatter: function(value, row) {
+                                return row.operator_text;
+                            },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: []}}">
+                                Operator
+                            </th>
+                            <th data-options="
+                            field:'value_value',
+                            width: '32%',
+                            formatter: function(value, row) {
+                                return row.value_text;
+                            },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: []}}">
+                                Value
+                            </th>
+                            <th data-options="
+                            field:'connector_value',
+                            width: '8%',
+                            formatter: function(value, row) {
+                                return row.connector_text;
+                            },
+                            editor: {type: 'combobox',
+                                     options: {
+                                        valueField: 'value',
+                                        textField: 'text',
+                                        required: true,
+                                        data: [{value: 'AND', text: 'and'},
+                                               {value: 'OR', text: 'or'}]}}">
+                                Connector
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div id="organism-toolbar">
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-add" plain="true"
+                           onclick="addFilter('organism')">Add</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-remove" plain="true"
+                           onclick="removeFilter('organism')">Remove</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-undo" plain="true"
+                           onclick="rejectFilter('organism')">Cancel</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-search" plain="true"
+                           onclick="searchFilters('organism')">Search!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div title="Search Results"
+             style="padding: 10px;"
+             data-options="minimized: false, collapsed: true">
+            <div class="easyui-layout" style="width:100%; height: 440px;">
+                <div id="investigation-results-panel" data-options="region:'west',title:'Investigations',split:true"
+                     style="width: 30%;">
+                    <table id="investigation-results"
+                           class="easyui-datagrid"
+                           data-options="
+                            striped:true,
+                            idField: 'id',
+                            fit: true,
+                            fitColumns: true,
+                            singleSelect: true,
+                            toolbar: '#investigation-results-toolbar'
+                            ">
+                        <thead>
+                        <tr>
+                            <th data-options="field:'id'">Id</th>
+                            <th data-options="field:'investigation_name'">Name</th>
+                            <th data-options="field:'investigation_description'">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div id="investigation-results-toolbar">
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-filter" plain="true"
+                           onclick="getLinkedData('investigation', 'sample');">Get Samples</a>
+                    </div>
+                </div>
+                <div id="sample-results-panel" data-options="region:'center',title:'Samples',split:true"
+                     style="width: 40%;">
+                    <table id="sample-results" class="easyui-datagrid"
+                           style="height: 100%;"
+                           data-options="
+                       striped:true,
+                       singleSelect: true,
+                       queryParams: {source: 'sample'},
+                       idField:'id',
+                       toolbar: '#sample-results-toolbar'
+                       ">
+                        <thead>
+                        <tr>
+                            <th data-options="field:'id',hidden:true"></th>
+                            <th data-options="field:'source_mat_id',width:200, sortable:true">Source Mat. ID</th>
+                            <th data-options="field:'samp_description',width:400, sortable:true">Description</th>
+                            <th data-options="field:'samp_comment',width:400, sortable:true">Comment</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div id="sample-results-toolbar">
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-filter" plain="true"
+                           onclick="getLinkedData('sample','investigation')">Get Investigation</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"
+                           iconCls="icon-filter" plain="true"
+                           onclick="getLinkedData('sample','organism')">Get Organisms</a>
+                    </div>
+                </div>
+                <div id="organism-results-panel" data-options="region:'east',title:'Organisms',split:true"
+                     style="width: 30%;">
+                    <div id="organisms-accordion"
+                         class="easyui-accordion"
+                         style="height: 100%;"
+                         data-options="multiple:false">
+                        <div title="From Search"
+                             data-options="selected: false">
+                            <table id="organism-results"
+                                   class="easyui-datagrid"
+                                   url="{% url 'organism_results_filtered_pages' %}"
+                                   method="get"
+                                   data-options="
+                                        striped:true,
+                                        idField: 'id',
+                                        fit: true,
+                                        fitColumns: true,
+                                        singleSelect: true,
+                                        pagination:true,
+                                        pageSize:10,
+                                        toolbar: '#organism-results-toolbar'
+                                         ">
+                            </table>
+                            <div id="organism-results-toolbar">
+                                <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-filter"
+                                   plain="true"
+                                   onclick="getLinkedData('organism', 'sample')">Get Samples</a>
+                                <a href="#" class="easyui-menubutton" data-options="menu: '#mm1'">Get Taxonomy</a>
+                            </div>
+                            <div id="mm1">
+                                <div href="#" class="easyui-linkbutton"
+                                     plain="true"
+                                     onclick="getLinkedData('organism-results', 'family')">Family</div>
+                                <div href="#" class="easyui-linkbutton"
+                                     plain="true"
+                                     onclick="getLinkedData('organism-results', 'genus')">Genus</div>
+                            </div>
+                        </div>
+                        <div title="In Sample Analysis"
+                            data-options="selected: false">
+                            <table id="organism-results-in-analysis"
+                                   class="easyui-datagrid"
+                                   url="{% url 'organism_results_pages' %}"
+                                   method="get"
+                                   data-options="
+                                        striped:true,
+                                        idField: 'id',
+                                        fit: true,
+                                        fitColumns: true,
+                                       pagination:true,
+                                       pageSize:10,
+                                        singleSelect: true,
+                                        toolbar: '#organism-results-in-analysis-toolbar'
+                                         ">
+                                <thead>
+                                <tr>
+                                    <th data-options="field:'id'">Id</th>
+                                    <th data-options="field:'family'">Family</th>
+                                    <th data-options="field:'genus'">Genus</th>
+                                    <th data-options="field:'score'">Score/Seq. %</th>
+                                    <th data-options="field:'gene_pc'">Gene %</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <div id="organism-results-in-analysis-toolbar">
+                                <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-filter"
+                                   plain="true"
+                                   onclick="getLinkedData('organism', 'sample')">Get Samples</a>
+                                <a href="#" class="easyui-menubutton" data-options="menu: '#mm2'">Get Taxonomy</a>
+                            </div>
+                            <div id="mm2">
+                                <div href="#" class="easyui-linkbutton"
+                                     plain="true"
+                                     onclick="getLinkedData('organism-in-analysis', 'family')">Family</div>
+                                <div href="#" class="easyui-linkbutton"
+                                     plain="true"
+                                     onclick="getLinkedData('organism-in-analysis', 'genus')">Genus</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div title="Infosheet"
+             data-options="minimized:false" style="overflow: auto;width: 100%">
+            <div id="infosheet"></div>
+        </div>
+    </div>
+    <div id="location-map-window"><div id="location-map" style="height: 100%;"></div>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript" language="javascript" src="/static/js/search.js"></script>
+    <script type="text/javascript" language="javascript" src="/static/js/show_map.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#search-menu-button').linkbutton('select');
+        });
+    </script>
+{% endblock %}

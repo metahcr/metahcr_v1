@@ -1,0 +1,60 @@
+.infosheet {
+    display:table;
+    border: 1px solid darkblue;
+    border-collapse: collapse;
+}
+
+.infosheet-header {
+    padding: 5px 0px;
+    background-color: #E0ECFF;
+    border: 1px solid darkblue;
+    font-weight: bold;
+    text-align: center;
+    width: 100%
+}
+
+.infosheet-subheader {
+    padding: 5px 0px;
+    color: #E0ECFF;
+    border: 1px solid darkblue;
+    font-weight: bold;
+    text-align: center;
+    width: 100%
+}
+
+.if-col1 {
+    width: 33%;
+    margin-left: 0;
+    float: left;
+}
+.if-col2 {
+    width: 33%;
+    margin-left: auto;
+    float: left;
+}
+.if-col3 {
+    width: 33%;
+    margin-left: auto;
+    float: left;
+}
+
+.infosheettable {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.infosheettable td {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    vertical-align: top;
+}
+
+.infosheettable td.value {
+    font-weight: bold;
+}
+
+.infosheettable tr:nth-of-type(odd) {
+    background-color: #E0ECFF;
+}

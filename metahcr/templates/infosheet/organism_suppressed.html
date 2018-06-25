@@ -1,0 +1,452 @@
+<div id="infobox">
+    <span id="icon" class="info"></span><span class="text">
+    <strong>MetaHCR information sheet for organism {{ organism.genus }} {{ organism.species }}</strong></span>
+</div>
+<div id="infosheets">
+    <div id="organism-attributes-1" class="easyui-panel"
+         style="width: 33%;"
+         data-options="
+                    {% if user.is_staff %}
+                    tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('organism', '', {id: {{ organism.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 0, float: 'left'}
+                    "
+         title="ORGANISM ATTRIBUTES">
+        <table class="infosheettable">
+            <tbody>
+{% if organism.superkingdom  %}
+            <tr>
+                <td class="key">Super Kingdom</td>
+                <td class="value">{{ organism.superkingdom }}</td>
+            </tr>
+{% endif %}
+{% if organism.phylum  %}
+            <tr>
+                <td class="key">Phylum</td>
+                <td class="value">{{ organism.phylum }}</td>
+            </tr>
+{% endif %}
+{% if organism.subphylum  %}
+            <tr>
+                <td class="key">Subphylum</td>
+                <td class="value">{{ organism.subphylum }}</td>
+            </tr>
+{% endif %}
+{% if organism.bio_class  %}
+            <tr>
+                <td class="key">Class</td>
+                <td class="value">{{ organism.bio_class }}</td>
+            </tr>
+{% endif %}
+{% if organism.bio_order  %}
+            <tr>
+                <td class="key">Order</td>
+                <td class="value">{{ organism.bio_order }}</td>
+            </tr>
+{% endif %}
+{% if organism.family  %}
+            <tr>
+                <td class="key">Family</td>
+                <td class="value">{{ organism.family }}</td>
+            </tr>
+{% endif %}
+{% if organism.genus  %}
+            <tr>
+                <td class="key">Genus</td>
+                <td class="value">{{ organism.genus }}</td>
+            </tr>
+{% endif %}
+{% if organism.species  %}
+            <tr>
+                <td class="key">Species</td>
+                <td class="value">{{ organism.species }}</td>
+            </tr>
+{% endif %}
+{% if organism.strain  %}
+            <tr>
+                <td class="key">Strain</td>
+                <td class="value">{{ organism.strain }}</td>
+            </tr>
+{% endif %}
+            <tr>
+                <td class="key">NCBI Taxon ID</td>
+                {% if organism.ncbi_taxon_id %}
+                <td class="value"><a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ organism.ncbi_taxon_id }}" target="_blank">
+                    {{ organism.ncbi_taxon_id }}</a>
+                </a>
+                    </td>
+                    {% else %}
+                <td class="value">None</td>
+                    {% endif %}
+            </tr>
+            <tr>
+                <td class="key">Metabolism Type</td>
+                <td class="value">
+                    {% for m_value in organism.metabolism_type.values %}
+                        {{ m_value.type }}&nbsp;
+                    {% endfor %}
+                    </td>
+            </tr>
+{% if organism.risk.value == 1  %}
+            <tr>
+                <td class="key">Threat</td>
+                <td class="value">{{ organism.risk.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.grow_postgate.value == 1  %}
+            <tr>
+                <td class="key">Grow Postgate?</td>
+                <td class="value">{{ organism.grow_postgate.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.description  %}
+            <tr>
+                <td class="key">Description</td>
+                <td class="value">{{ organism.description }}</td>
+            </tr>
+{% endif %}
+{% if organism.temperature_range.value == 1  %}
+            <tr>
+                <td class="key">Temperature Range</td>
+                <td class="value">{{ organism.temperature_range.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.oxygen_requirement.value == 1  %}
+            <tr>
+                <td class="key">Oxygen Requirement</td>
+                <td class="value">{{ organism.oxygen_requirement.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.cell_shape.value == 1  %}
+            <tr>
+                <td class="key">Cell Shape</td>
+                <td class="value">{{ organism.cell_shape.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.motility.value == 1  %}
+            <tr>
+                <td class="key">Motility</td>
+                <td class="value">{{ organism.motility.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.sporulation.value == 1  %}
+            <tr>
+                <td class="key">Sporulation</td>
+                <td class="value">{{ organism.sporulation.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.salinity.value == 1  %}
+            <tr>
+                <td class="key">Salinity</td>
+                <td class="value">{{ organism.salinity.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.cell_arrangement.value == 1  %}
+            <tr>
+                <td class="key">Cell Arrangement</td>
+                <td class="value">{{ organism.cell_arrangement.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.colour.value == 1  %}
+            <tr>
+                <td class="key">Colour</td>
+                <td class="value">{{ organism.colour }}</td>
+            </tr>
+{% endif %}
+</tbody>
+        </table>
+    </div>
+    <div id="organism-attributes-2" class="easyui-panel"
+         style="width: 33%;"
+         data-options="
+                    {% if user.is_staff %}
+                    tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('organism', '', {id: {{ organism.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 0, float: 'left'}
+                    "
+         title="ORGANISM ATTRIBUTES">
+        <table class="infosheettable">
+            <tbody>
+{% if organism.gram_staining.value == 1  %}
+            <tr>
+                <td class="key">Gram Staining</td>
+                <td class="value">{{ organism.gram_staining.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.disease.value == 1  %}
+            <tr>
+                <td class="key">Disease</td>
+                <td class="value">{{ organism.disease.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.habitats.value == 1  %}
+            <tr>
+                <td class="key">Habitats</td>
+                <td class="value">{{ organism.habitats.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.metabolism.value == 1  %}
+            <tr>
+                <td class="key">Metabolism</td>
+                <td class="value">{{ organism.metabolism.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.phenotype.value == 1  %}
+            <tr>
+                <td class="key">Phenotype</td>
+                <td class="value">{{ organism.phenotype.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.energy_source.value == 1  %}
+            <tr>
+                <td class="key">Energy Source</td>
+                <td class="value">{{ organism.energy_source.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.biotic_relationship.value == 1  %}
+            <tr>
+                <td class="key">Biotic Relationship</td>
+                <td class="value">{{ organism.biotic_relationship.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.accession_no_cultured  %}
+            <tr>
+                <td class="key">Accession No. Cultured</td>
+                <td class="value">{{ organism.accession_no_cultured }}</td>
+            </tr>
+{% endif %}
+{% if organism.accession_no_uncultured  %}
+            <tr>
+                <td class="key">Accession No. Uncultured</td>
+                <td class="value">{{ organism.accession_no_uncultured }}</td>
+            </tr>
+{% endif %}
+{% if organism.ss_rdb_id  %}
+            <tr>
+                <td class="key">SS Rdb ID</td>
+                <td class="value">{{ organism.ss_rdb_id }}</td>
+            </tr>
+{% endif %}
+{% if organism.temperature_min  %}
+            <tr>
+                <td class="key">Temperature Min.</td>
+                <td class="value">{{ organism.temperature_min }}</td>
+            </tr>
+{% endif %}
+{% if organism.temperature_max  %}
+            <tr>
+                <td class="key">Temperature Max.</td>
+                <td class="value">{{ organism.temperature_max }}</td>
+            </tr>
+{% endif %}
+{% if organism.tempeterature_opt_c  %}
+            <tr>
+                <td class="key">Temperature Opt.</td>
+                <td class="value">{{ organism.tempeterature_opt_c }}</td>
+            </tr>
+{% endif %}
+{% if organism.ph_min  %}
+            <tr>
+                <td class="key">pH Min.</td>
+                <td class="value">{{ organism.ph_min }}</td>
+            </tr>
+{% endif %}
+{% if organism.ph_max  %}
+            <tr>
+                <td class="key">pH Max.</td>
+                <td class="value">{{ organism.ph_max }}</td>
+            </tr>
+{% endif %}
+{% if organism.ph_opt  %}
+            <tr>
+                <td class="key">pH Opt.</td>
+                <td class="value">{{ organism.ph_opt }}</td>
+            </tr>
+{% endif %}
+{% if organism.cell_diameter  %}
+            <tr>
+                <td class="key">Cell Diameter</td>
+                <td class="value">{{ organism.cell_diameter }}</td>
+            </tr>
+{% endif %}
+{% if organism.cell_length  %}
+            <tr>
+                <td class="key">Cell Length</td>
+                <td class="value">{{ organism.cell_length }}</td>
+            </tr>
+{% endif %}
+{% if organism.comment  %}
+            <tr>
+                <td class="key">Comment</td>
+                <td class="value">{{ organism.comment }}</td>
+            </tr>
+{% endif %}
+            </tbody>
+        </table>
+
+    </div>
+    <div id="organism-attributes-3" class="easyui-panel"
+         style="width: 33%;"
+         data-options="
+                   {% if user.is_staff %}
+                   tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('organism', '', {id: {{ organism.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 0, float: 'left'}
+                    "
+         title="ORGANISM ATTRIBUTES">
+        <table class="infosheettable">
+            <tbody>
+{% if organism.clone  %}
+            <tr>
+                <td class="key">Clone</td>
+                <td class="value">{{ organism.clone }}</td>
+            </tr>
+{% endif %}
+{% if organism.closest_cultured_relative  %}
+            <tr>
+                <td class="key">Closest Cultured Relative</td>
+                <td class="value">{{ organism.closest_cultured_relative }}</td>
+            </tr>
+{% endif %}
+{% if organism.closest_relative  %}
+            <tr>
+                <td class="key">Closest Relative</td>
+                <td class="value">{{ organism.closest_relative }}</td>
+            </tr>
+{% endif %}
+{% if organism.max_salinity_tds  %}
+            <tr>
+                <td class="key">Max. Salinity TDS</td>
+                <td class="value">{{ organism.max_salinity_tds }}</td>
+            </tr>
+{% endif %}
+{% if organism.min_salinity_tds  %}
+            <tr>
+                <td class="key">Min. Salinity TDS</td>
+                <td class="value">{{ organism.min_salinity_tds }}</td>
+            </tr>
+{% endif %}
+{% if organism.opt_salinity_tds  %}
+            <tr>
+                <td class="key">Opt. Salinity TDS</td>
+                <td class="value">{{ organism.opt_salinity_tds }}</td>
+            </tr>
+{% endif %}
+{% if organism.true_tds_or_tds_equiv  %}
+            <tr>
+                <td class="key">True TDS or TDS Equiv.</td>
+                <td class="value">{{ organism.true_tds_or_tds_equiv }}</td>
+            </tr>
+{% endif %}
+{% if organism.ncbi_ref_seq  %}
+            <tr>
+                <td class="key">NCBI Ref. Seq.</td>
+                <td class="value">{{ organism.ncbi_ref_seq }}</td>
+            </tr>
+{% endif %}
+{% if organism.reference  %}
+            <tr>
+                <td class="key">Reference</td>
+                <td class="value">{{ organism.reference }}</td>
+            </tr>
+{% endif %}
+{% if organism.relative_abundance  %}
+            <tr>
+                <td class="key">Relative Abundance</td>
+                <td class="value">{{ organism.relative_abundance }}</td>
+            </tr>
+{% endif %}
+{% if organism.similarity  %}
+            <tr>
+                <td class="key">Similarity</td>
+                <td class="value">{{ organism.similarity }}</td>
+            </tr>
+{% endif %}
+{% if organism.similarity_clos_cul  %}
+            <tr>
+                <td class="key">Similarity Clos. Cul.</td>
+                <td class="value">{{ organism.similarity_clos_cul }}</td>
+            </tr>
+{% endif %}
+{% if organism.gold_project_id  %}
+            <tr>
+                <td class="key">Gold Project ID</td>
+                <td class="value">{{ organism.gold_project_id }}</td>
+            </tr>
+{% endif %}
+{% if organism.genus_synonyms  %}
+            <tr>
+                <td class="key">Genus Synonyms</td>
+                <td class="value">{{ organism.genus_synonyms }}</td>
+            </tr>
+{% endif %}
+{% if organism.species_synonyms  %}
+            <tr>
+                <td class="key">Species Synonyms</td>
+                <td class="value">{{ organism.species_synonyms }}</td>
+            </tr>
+{% endif %}
+{% if organism.culture_collection_id  %}
+            <tr>
+                <td class="key">Culture Collection ID</td>
+                <td class="value">{{ organism.culture_collection_id }}</td>
+            </tr>
+{% endif %}
+{% if organism.ecosystem.value == 1  %}
+            <tr>
+                <td class="key">Ecosystem</td>
+                <td class="value">{{ organism.ecosystem.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.ecosystem_category.value == 1  %}
+            <tr>
+                <td class="key">Ecosystem Category</td>
+                <td class="value">{{ organism.ecosystem_category.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.ecosystem_type.value == 1  %}
+            <tr>
+                <td class="key">Ecosystem Type</td>
+                <td class="value">{{ organism.ecosystem_type.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.ecosystem_subtype.value == 1  %}
+            <tr>
+                <td class="key">Ecosystem Subtype</td>
+                <td class="value">{{ organism.ecosystem_subtype.value }}</td>
+            </tr>
+{% endif %}
+{% if organism.specific_ecosystem.value == 1  %}
+            <tr>
+                <td class="key">Specific Ecosystem</td>
+                <td class="value">{{ organism.specific_ecosystem.value }}</td>
+            </tr>
+{% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% block javascript %}
+    <script type="text/javascript">
+        // These easyui components need to be initialized here or they will not be displayed correctly on the page.
+        // This might be because this template is loaded into an existing page?
+        $('#organism-attributes-1').panel();
+        $('#organism-attributes-2').panel();
+        $('#organism-attributes-3').panel();
+    </script>
+{% endblock %}

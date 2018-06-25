@@ -1,0 +1,524 @@
+<div id="infobox">
+    <span id="icon" class="info"></span><span class="text">
+    <strong>MetaHCR information sheet for investigation {{ investigation.project_name }}</strong></span>
+</div>
+<div id="infosheets">
+    <div id="investigation-attributes" class="easyui-panel"
+         style="width: 33%;"
+         data-options="
+                    {% if user.is_staff %}
+                    tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('investigation', '', {id: {{ investigation.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 0, float: 'left'}
+                    "
+         title="INVESTIGATION ATTRIBUTES">
+        <table class="infosheettable">
+            <tbody>
+            <tr>
+                <td class="key">Name</td>
+                <td class="value">{{ investigation.project_name }}</td>
+            </tr>
+            <tr>
+                <td class="key">Description</td>
+                <td class="value">{{ investigation.investigation_description }}</td>
+            </tr>
+            <tr>
+                <td class="key">Experimental Factor</td>
+                <td class="value">{{ investigation.experimental_factor.value|default:"n/a" }}</td>
+            </tr>
+            <tr>
+                <td class="key">Type</td>
+                <td class="value">{{ investigation.investigation_type.value|default:'n/a' }}</td>
+            </tr>
+            <tr>
+                <td class="key">NCBI Project ID</td>
+                <td class="value">{{ investigation.ncbi_project_id }}
+                    {% if investigation.ncbi_project_id %}
+                        <a href="{{ parameters.ncbi_sra_url }}{{ investigation.ncbi_project_id }}"
+                           target="_blank"><img
+                                src="/static/images/link_go.png" class="infosheet_icon"
+                                title="Open project in NCBI BioProject"></a>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td class="key">GOLD project ID</td>
+                <td class="value">{{ investigation.gold_project_id }}
+                    {% if investigation.gold_project_id %}
+                        <a href="{{ parameters.gold_card_url }}{{ investigation.gold_project_id }}"
+                           target="_blank"><img
+                                src="/static/images/link_go.png" class="infosheet_icon"
+                                title="Open project in Genomes OnLine Database (GOLD)"></a>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Reference</td>
+                <td class="value">{{ investigation.investigation_reference }}</td>
+            </tr>
+            <tr>
+                <td class="key">Keywords</td>
+                <td class="value">{{ investigation.keywords }}</td>
+            </tr>
+            <tr>
+                <td class="key">Status</td>
+                <td class="value">{{ investigation.investigation_status.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Availability</td>
+                <td class="value">{{ investigation.availability.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Start date</td>
+                <td class="value">{{ investigation.investigaton_start_date|date:'F jS, Y' }}</td>
+            </tr>
+            <tr>
+                <td class="key">Completion date</td>
+                <td class="value">
+                    {% if not investigation.completion_date %}
+                        not completed yet
+                    {% else %}
+                        {{ investigation.completion_date|date:'F jS, Y' }}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Submitted to INSDC</td>
+                <td class="value">{{ investigation.submitted_to_insdc|yesno:"Yes,No"}}</td>
+            </tr>
+            <tr>
+                <td class="key">Quality</td>
+                <td class="value">{{ investigation.quality }}</td>
+            </tr>
+            <tr>
+                <td class="key">Purpose</td>
+                <td class="value">{{ investigation.purpose }}</td>
+            </tr>
+            <tr>
+                <td class="key">Env. Package</td>
+                <td class="value">{{ investigation.env_package.value}}</td>
+            </tr>
+            <tr>
+                <td class="key">Contact ID</td>
+                <td class="value">{{ investigation.contact_id }}</td>
+            </tr>
+            <tr>
+                <td class="key">Publication</td>
+                <td class="value">
+                    {% if investigation.investigation_publication %}
+                        {{ investigation.investigation_publication }}
+                        {% if investigation.investigation_publication != 'Unpublished' %}
+                            <a href="{{ parameters.pubmed_url }}{{ investigation.investigation_publication }}"
+                               target="_blank"><img
+                                    src="/static/images/report_magnify.png" class="infosheet_icon"
+                                    title="Search publication on PubMed"></a>
+                        {% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Comment</td>
+                <td class="value">{{ investigation.investigation_comment }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="hydrocarbon-resource" class="easyui-panel"
+         style="width: 33%;"
+         data-options="
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 0, float: 'left'}
+                    "
+         title="HYDROCARBON RESOURCE">
+        <table class="infosheettable">
+            <tbody>
+            <tr>
+                <td class="key">Type</td>
+                <td class="value">{{ hydrocarbon_resource.hcr.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Hcr Abbrev.</td>
+                <td class="value">{{ hydrocarbon_resource.hcr_abbrev }}</td>
+            </tr>
+            <tr>
+                <td class="key">Temperature Range</td>
+                <td class="value">{{ hydrocarbon_resource.temperature_range.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">HC Produced</td>
+                <td class="value">{{ hydrocarbon_resource.hc_produced.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Basin</td>
+                <td class="value">{{ hydrocarbon_resource.basin }}</td>
+            </tr>
+            <tr>
+                <td class="key">Field</td>
+                <td class="value">{{ hydrocarbon_resource.field }}</td>
+            </tr>
+            <tr>
+                <td class="key">Reservoir</td>
+                <td class="value">{{ hydrocarbon_resource.reservoir }}</td>
+            </tr>
+            <tr>
+                <td class="key">HCR Temps.</td>
+                {% if hydrocarbon_resource.hcr_temp_lo and hydrocarbon_resource.hcr_temp_hi %}
+                    <td class="value">{{ hydrocarbon_resource.hcr_temp_lo }} - {{ hydrocarbon_resource.hcr_temp_hi }}</td>
+                {% else %}
+                    <td class="value">{{ hydrocarbon_resource.hcr_temp_log }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td class="key">Tvdss of Hcr Temp.</td>
+                <td class="value">{{ hydrocarbon_resource.tvdss_of_hcr_temp }}</td>
+            </tr>
+            <tr>
+                <td class="key">Hcr Pressure</td>
+                <td class="value">{{ hydrocarbon_resource.hcr_pressure }}</td>
+            </tr>
+            <tr>
+                <td class="key">Tvdss of Hcr Pressure</td>
+                <td class="value">{{ hydrocarbon_resource.tvdss_of_hcr_pressure }}</td>
+            </tr>
+            <tr>
+                <td class="key">Permeability</td>
+                <td class="value">{{ hydrocarbon_resource.permeability }}</td>
+            </tr>
+            <tr>
+                <td class="key">Porosity</td>
+                <td class="value">{{ hydrocarbon_resource.porosity }}</td>
+            </tr>
+            <tr>
+                <td class="key">Lithology</td>
+                <td class="value">{{ hydrocarbon_resource.lithology.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Depos. Env.</td>
+                <td class="value">{{ hydrocarbon_resource.depos_env.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Hcr Geol. Age</td>
+                <td class="value">{{ hydrocarbon_resource.hcr_geol_age.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">OWC Tvdss</td>
+                <td class="value">{{ hydrocarbon_resource.owc_tvdss }}</td>
+            </tr>
+            <tr>
+                <td class="key">Hcr FW Salinity</td>
+                <td class="value">{{ hydrocarbon_resource.hcr_fw_salinity }}</td>
+            </tr>
+            <tr>
+                <td class="key">Sr. Kerog Type</td>
+                <td class="value">{{ hydrocarbon_resource.sr_kerog_type.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Sr. Lithology</td>
+                <td class="value">{{ hydrocarbon_resource.sr_lithology.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Sr. Dep. Env.</td>
+                <td class="value">{{ hydrocarbon_resource.sr_dep_env.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Sr. Geol. Age</td>
+                <td class="value">{{ hydrocarbon_resource.sr_geol_age.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Hcr Satur. PC.</td>
+                <td class="value">{{ hydrocarbon_resource.hcr_hc_satur_pc.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Drive Mech.</td>
+                <td class="value">{{ hydrocarbon_resource.drive_mech.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Unique Resource Name</td>
+                <td class="value">{{ hydrocarbon_resource.unique_resource_name }}</td>
+            </tr>
+            <tr>
+                <td class="key">Comment</td>
+                <td class="value">{{ hydrocarbon_resource.comment }}</td>
+            </tr>
+            <tr>
+                <td class="key">Reference</td>
+                <td class="value">{{ hydrocarbon_resource.reference }}</td>
+            </tr>
+            <tr>
+                <td class="key">Salinity Today</td>
+                <td class="value">{{ hydrocarbon_resource.salinity_today.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Formation</td>
+                <td class="value">{{ hydrocarbon_resource.formation }}</td>
+            </tr>
+{##}
+{#            <tr>#}
+{#                <td class="key">Formation name</td>#}
+{#                <td class="value">{{ hydrocarbon_resource.formation_name }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">Temperature [°C]</td>#}
+{#                <td class="value">{{ hydrocarbon_resource.temperature }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">#}
+{#                    Geologic age#}
+{#                    {% if metadata_info.hydrocarbon_resource.geologic_age %}#}
+{#                        <img src="/static/images/information.png" class="tooltip"#}
+{#                             title="{{ metadata_info.hydrocarbon_resource.geologic_age }}">#}
+{#                    {% endif %}#}
+{#                </td>#}
+{#                <td class="value">{{ hydrocarbon_resource.geologic_age.value }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">#}
+{#                    Dominant fluid type#}
+{#                    {% if metadata_info.hydrocarbon_resource.dominant_fluid_type %}#}
+{#                        <img src="/static/images/information.png" class="tooltip"#}
+{#                             title="{{ metadata_info.hydrocarbon_resource.dominant_fluid_type }}">#}
+{#                    {% endif %}#}
+{#                </td>#}
+{#                <td class="value">{{ hydrocarbon_resource.dominant_fluid_type.value }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">#}
+{#                    Deposition habitat#}
+{#                    {% if metadata_info.hydrocarbon_resource.deposition_habitat %}#}
+{#                        <img src="/static/images/information.png" class="tooltip"#}
+{#                             title="{{ metadata_info.hydrocarbon_resource.deposition_habitat }}">#}
+{#                    {% endif %}#}
+{#                </td>#}
+{#                <td class="value">{{ hydrocarbon_resource.deposition_habitat.value }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">#}
+{#                    Salinity#}
+{#                    {% if metadata_info.hydrocarbon_resource.salinity %}#}
+{#                        <img src="/static/images/information.png" class="tooltip"#}
+{#                             title="{{ metadata_info.hydrocarbon_resource.salinity }}">#}
+{#                    {% endif %}#}
+{#                </td>#}
+{#                <td class="value">{{ hydrocarbon_resource.salinity.value }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">#}
+{#                    Lithology#}
+{#                    {% if metadata_info.hydrocarbon_resource.lithology %}#}
+{#                        <img src="/static/images/information.png" class="tooltip"#}
+{#                             title="{{ metadata_info.hydrocarbon_resource.lithology }}">#}
+{#                    {% endif %}#}
+{#                </td>#}
+{#                <td class="value">{{ hydrocarbon_resource.lithology.value }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">#}
+{#                    Distance from HC/water contact#}
+{#                    {% if metadata_info.hydrocarbon_resource.distance_from_oilwater_contact %}#}
+{#                        <img src="/static/images/information.png" class="tooltip"#}
+{#                             title="{{ metadata_info.hydrocarbon_resource.distance_from_oilwater_contact }}">#}
+{#                    {% endif %}#}
+{#                </td>#}
+{#                <td class="value">{{ hydrocarbon_resource.distance_from_oilwater_contact.value }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">#}
+{#                    Top true vertical depth [m]#}
+{#                    {% if metadata_info.hydrocarbon_resource.top_true_vertical_depth %}#}
+{#                        <img src="/static/images/information.png" class="tooltip"#}
+{#                             title="{{ metadata_info.hydrocarbon_resource.top_true_vertical_depth }}">#}
+{#                    {% endif %}#}
+{#                </td>#}
+{#                <td class="value">{{ hydrocarbon_resource.top_true_vertical_depth }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">#}
+{#                    Bottom true vertical depth [m]#}
+{#                    {% if metadata_info.hydrocarbon_resource.bottom_true_vertical_depth %}#}
+{#                        <img src="/static/images/information.png" class="tooltip"#}
+{#                             title="{{ metadata_info.hydrocarbon_resource.bottom_true_vertical_depth }}">#}
+{#                    {% endif %}#}
+{#                </td>#}
+{#                <td class="value">{{ hydrocarbon_resource.bottom_true_vertical_depth }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">Bottom Measured depth [m]</td>#}
+{#                <td class="value">{{ hydrocarbon_resource.bottom_measured_depth }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">Porosity [%]</td>#}
+{#                <td class="value">{{ hydrocarbon_resource.porosity }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">Hydrocarbon saturation [%]</td>#}
+{#                <td class="value">{{ hydrocarbon_resource.hydrocarbon_saturation }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">Permeability [Darcy]</td>#}
+{#                <td class="value">{{ hydrocarbon_resource.permeability }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">Pressure [kPa]</td>#}
+{#                <td class="value">{{ hydrocarbon_resource.pressure }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">Chemical treatment</td>#}
+{#                <td class="value">{{ hydrocarbon_resource.chemical_treatment }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">Comment</td>#}
+{#                <td class="value">{{ hydrocarbon_resource.comment }}</td>#}
+{#            </tr>#}
+            </tbody>
+        </table>
+    </div>
+    <div id="mineralogy" class="easyui-panel"
+         style="width: 33%;"
+         data-options="
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 'auto', float: 'left'}
+                    "
+         title="MINERALOGY">
+        <table class="infosheettable">
+            <tbody>
+            <tr>
+                <td class="key">Analysis Date</td>
+                <td class="value">{{ mineralogy.mineralogy_analysis_date }}</td>
+            </tr>
+            <tr>
+                <td class="key">Anhydrite</td>
+                <td class="value">{{ mineralogy.anhydrite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Carbonate</td>
+                <td class="value">{{ mineralogy.carbonate }}</td>
+            </tr>
+            <tr>
+                <td class="key">Carbonate Cement</td>
+                <td class="value">{{ mineralogy.carbonate_cement }}</td>
+            </tr>
+            <tr>
+                <td class="key">Clay</td>
+                <td class="value">{{ mineralogy.clay }}</td>
+            </tr>
+            <tr>
+                <td class="key">Dolomite</td>
+                <td class="value">{{ mineralogy.dolomite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Feldspar</td>
+                <td class="value">{{ mineralogy.feldspar }}</td>
+            </tr>
+            <tr>
+                <td class="key">Mica</td>
+                <td class="value">{{ mineralogy.mica }}</td>
+            </tr>
+            <tr>
+                <td class="key">Quartz</td>
+                <td class="value">{{ mineralogy.quartz }}</td>
+            </tr>
+            <tr>
+                <td class="key">Siderite</td>
+                <td class="value">{{ mineralogy.siderite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Hematite</td>
+                <td class="value">{{ mineralogy.hematite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Chlorite</td>
+                <td class="value">{{ mineralogy.chlorite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Illite</td>
+                <td class="value">{{ mineralogy.illite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Magnetite</td>
+                <td class="value">{{ mineralogy.magnetite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Smectite</td>
+                <td class="value">{{ mineralogy.smectite }}</td>
+            </tr>
+{#            <tr>#}
+{#                <td class="key">Reference</td>#}
+{#                <td class="value">{{ mineralogy.mineralogy_reference }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="key">Comment</td>#}
+{#                <td class="value">{{ mineralogy.mineralogy_comment }}</td>#}
+{#            </tr>#}
+            </tbody>
+        </table>
+    </div>
+    <div id="curator-details" class="easyui-panel"
+         style="width: 33%;"
+         data-options="
+{#                    tools:[#}
+{#                        {#}
+{#                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('curator-details', '', {id: {{ investigation.id }} }, false);}#}
+{#                        }#}
+{#                    ],#}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 'auto', float: 'left'}
+                    "
+         title="CURATOR DETAILS">
+        {% if not investigation.curator_details %}
+            <p class="info">There are no curator data available.</p>
+        {% else %}
+            <table class="infosheettable">
+                <tbody>
+                <tr>
+                    <td class="key">Firstname</td>
+                    <td class="value">{{ investigation.curator_details.curator_firstname }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Lastname</td>
+                    <td class="value">{{ investigation.curator_details.curator_lastname }}</td>
+                </tr>
+                <tr>
+                    <td class="key">E-mail</td>
+                    <td class="value">
+                        {% if investigation.curator_details.curator_email != 'n/a' %}
+                            {{ investigation.curator_details.curator_email }}
+                            <a href="mailto:{{ investigation.curator_details.curator_email }}"
+                               title="Send an e-mail to this contact person" class="email"><img
+                                    src="/static/images/email_edit.png" class="infosheet_icon"
+                                    title="Send an e-mail to this contact person"></a>
+                        {% else %}
+                            {{ investigation.curator_details.curator_email }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="key">Comment</td>
+                    <td class="value">{{ investigation.curator_details.curator_comment }}</td>
+                </tr>
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+    <div class="if-col2">
+
+    </div>
+    <div class="if-col3">
+    </div>
+
+</div>
+
+{% block javascript %}
+    <script type="text/javascript">
+        // These easyui components need to be initialized here or they will not be displayed correctly on the page.
+        // This might be because this template is loaded into an existing page?
+        $('#investigation-attributes').panel();
+        $('#hydrocarbon-resource').panel();
+        $('#mineralogy').panel();
+        $('#curator-details').panel();
+    </script>
+{% endblock %}

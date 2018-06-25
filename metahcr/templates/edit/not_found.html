@@ -1,0 +1,8 @@
+{% extends "form_base.html" %}
+{% block content %}
+    <p><h2> No link to {{ entity }} available. </h2></p>
+    <p><h2>Please use the Admin facilities to add it.</h2></p>
+    <div id="dlg-buttons" style="text-align: center;">
+        <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:edit_infosheet_cancel()">Close</a>
+    </div>
+{% endblock %}

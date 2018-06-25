@@ -1,0 +1,246 @@
+/*
+Elements by tag
+*/
+body {
+    font-family: 'Verdana';
+}
+
+/*
+Elements by Id
+*/
+#infobox
+{
+    font-size: 1.2em;
+    padding: 20px 0 20px 50px;
+    background-color: #fdf6d1;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+#infobox #icon
+{
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    left: 30px;
+}
+
+#logo
+{
+    float: left;
+    margin-right: 10px;
+    width: 130px;
+    height: 61px;
+    /*font-size: 1.4em;*/
+    background-image: url(/static/images/MetaHCR_logo_2_reduced.png);
+}
+
+#moto
+{
+    margin-top: 10px;
+    float: left;
+}
+
+#moto h1
+{
+    color: #ff0000;
+    font-family: Futura, Verdana;
+    font-size: 3.0em;
+    letter-spacing: 0.03em;
+    font-weight: bold;
+    /*margin-left: 0px;*/
+    /*margin-top: 10px;*/
+    /*margin-bottom: 0px;*/
+    display: inline;
+}
+
+#moto h2
+{
+    color: #003882;
+    font-family: Futura, Verdana;
+    font-weight: bold;
+    font-size: 2.5em;
+    margin-left: 50px;
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+    display: inline;
+}
+
+#navigation {
+    background-color: #fdf6d1;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#status-box
+{
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 1.0em;
+}
+
+#status-box span.login_icon
+{
+    background: transparent url(/static/images/user_go.png) no-repeat;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+}
+
+#status-box span.logout_icon
+{
+    background: transparent url(/static/images/lock_go.png) no-repeat;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+}
+
+#status-box span.register_icon
+{
+    background: transparent url(/static/images/user_edit.png) no-repeat;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+}
+
+#status-box span.text
+{
+    padding-left: 20px;
+}
+
+#status-box span.text a
+{
+    color: inherit;
+    text-decoration: none;
+}
+
+#status-box span.text a:hover
+{
+    text-decoration: underline;
+}
+
+/*
+General table formatting - used to display available databases
+*/
+#dbtable
+{
+    width: 100%;
+    font-size: 1.4em;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border-collapse: collapse;
+}
+
+#dbtable td,
+#dbtable th
+{
+    padding: 10px;
+    /*
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    */
+}
+
+#dbtable thead th
+{
+    font-weight: bold;
+    color: #003882;
+    border-bottom: 1px solid #003882;
+}
+
+#dbtable tr.odd
+{
+    background-color: #fceda2;
+}
+
+#dbtable tr.even
+{
+    background-color: #fff;
+}
+
+#dbtable tr.odd:hover,
+#dbtable tr.even:hover
+{
+    background-color: #e58271;
+    color: #fff;
+    cursor: pointer;
+}
+
+/**************************************************************************************************************
+* Elements by class
+***************************************************************************************************************
+*/
+.panel-body {
+    /*padding: 5px;*/
+    background-color: white;
+    padding-bottom: 5px;
+}
+
+/*
+Django messages
+*/
+.warning {
+    color: red;
+}
+.info {
+    color: darkblue;
+}
+
+.instructions
+{
+    font-size: 1.0em;
+    padding: 20px 0 20px 50px;
+    background-color: #fdfdef;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/*
+Link Button (Menu Button) selected & hover color
+*/
+.l-btn-selected, .l-btn-selected:hover {
+    background-color: #1579ff;
+    font-weight: bold;
+    color: darkblue;
+}
+
+/*
+ Various and Sundry Icons
+ */
+.icon-browse{
+    background:url('../icons/browse.png') no-repeat center center;
+}
+.icon-house{
+    background:url('../icons/house.png') no-repeat center center;
+}
+.icon-zoom{
+    background:url('../icons/zoom.png') no-repeat center center;
+}
+.icon-suit{
+    background:url('../icons/user_suit.png') no-repeat center center;
+}
+.icon-database{
+    background:url('../icons/database.png') no-repeat center center;
+}
+.icon-save{
+    background:url('../icons/table_save.png') no-repeat center center;
+}
+.icon-delete{
+    background:url('../icons/edit_remove.png') no-repeat center center;
+}
+.icon-application-edit{
+    background:url('../images/application_edit.png') no-repeat center center;
+}
+.icon-google-maps{
+    background:url('../icons/google_maps.jpg') no-repeat center center;
+}
+.icon-eye{
+    background:url('../images/eye.png') no-repeat center center;
+}

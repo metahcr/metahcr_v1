@@ -1,0 +1,16 @@
+{% extends "form_base.html" %}
+{% block content %}
+    <h1> Edit Metagenome Analysis # {{ id }}</h1>
+    <form id='sample-mga_edit_form' method="POST" action="/edit/sample-mga/{{ id }}">{% csrf_token %}
+        {% for field in form %}
+            <div class="fieldWrapper" style="background-color: #f0e3bf">
+                <span class="textbox-label">{{ field.label_tag }}</span>
+                <span class="textbox">{{ field }}</span>
+            </div>
+        {% endfor %}
+    </form>
+    <div id="dlg-buttons" style="text-align: center;">
+        <a href="#" class="easyui-linkbutton" iconCls="icon-save" onclick="javascript:edit_infosheet_save('sample-mga')">Save</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:edit_infosheet_cancel()">Cancel</a>
+    </div>
+{% endblock %}

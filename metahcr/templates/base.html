@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            MetaHCR - Metagenomics on Hydrocarbon Resources
+        {% endblock %}
+    </title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/static/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/infosheet.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/themes/icon.css"/>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.easyui.min.js"></script>
+    <!-- We need the next bit of javascript to enable and show sub datagrids -->
+    <script type="text/javascript" language="JavaScript" src="/static/js/datagrid-detailview.js"></script>
+    <!-- This script supports datagrid column searching -->
+    <script type="text/javascript" language="javascript" src="/static/js/datagrid-filter.js"></script>
+
+    <!-- Common Javascript functions used by MetaHCR -->
+    <script type="text/javascript" language="JavaScript" src="/static/js/metahcr-common.js"></script>
+</head>
+<body>
+
+{% block header %}
+    <div class="easyui-panel" data-options="border:false">
+        <div id="logo"></div>
+        <div id="moto">
+            <h1>MetaHCR</h1>
+            <h2 style="text-align: right;"> Metagenomics on Hydrocarbon Resources</h2>
+        </div>
+        {#    </div>#}
+        {#    <div class="easyui-panel" data-options="width:'100%',border: false">#}
+        <div id="status-box">
+            <span class="register_icon"></span><span class="text"><a href="{% url 'register' %}">Register</a></span> |
+            {% if user.is_authenticated %}
+                <span class="logout_icon"></span>
+                <span class="text"><a href="{% url 'logout' %}">Logout</a> (<strong>{{ user.username }}</strong>)</span>
+                <br>
+                <span class="text">Organization: <strong>{{ user_profile.organization }}</strong></span>
+            {% else %}
+                <span class="login_icon"></span><span class="text"><a href="{% url 'login' %}">Login</a></span>
+            {% endif %}
+            <br>
+            <span
+                class="text">Database: <strong>{{ user_profile.database }}</strong></span>
+        </div>
+    </div>
+{% endblock %}
+
+<div id="navigation" class="easyui-panel" data-options="width:'99%'">
+    <a href="{% url "home" %}"
+       id="home-menu-button"
+       class="easyui-linkbutton"
+       data-options="plain: false, iconCls: 'icon-house'">Home</a>
+    <a href="{% url "browse" %}"
+       id="browse-menu-button"
+       class="easyui-linkbutton"
+       data-options="plain: false, iconCls: 'icon-browse'">Browse</a>
+    <a href="{% url "search" %}"
+       id="search-menu-button"
+       class="easyui-linkbutton"
+       data-options="plain: false, iconCls: 'icon-zoom'">Search</a>
+    {% if user.is_staff %}
+        <a href="{% url "upload" %}"
+           id="upload-menu-button"
+           class="easyui-linkbutton"
+           data-options="plain: false, iconCls: 'icon-database'">Upload</a>
+    {% else %}
+        <a href="{% url "upload" %}"
+           id="upload-menu-button"
+           class="easyui-linkbutton"
+           data-options="disable: true, plain: false, iconCls: 'icon-database'">Upload</a>
+    {% endif %}
+    {% if user.is_staff %}
+        <a href="/admin/"
+           id="admin-menu-button"
+           class="easyui-linkbutton"
+           data-options="plain: false, iconCls: 'icon-suit'">Admin</a>
+    {% else %}
+        <a href="#"
+           class="easyui-linkbutton"
+           data-options="disabled: true, plain: false, iconCls: 'icon-suit'">Admin</a>
+    {% endif %}
+</div>
+{% block content %}
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+    $('#navigation').panel({width: '99%'});
+
+    </script>
+{% endblock %}
+</body>
+</html>

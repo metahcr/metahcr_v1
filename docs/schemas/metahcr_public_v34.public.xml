@@ -1,0 +1,1357 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="metahcr_public_v34" schema="public" type="PostgreSQL - 9.2.9">
+   <tables>
+      <table name="attribute" numRows="849" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('attribute_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="type_id" foreignKey="biological_analysis_type_id_fkey" implied="false" onDeleteCascade="false" table="biological_analysis"/>
+            <child column="env_biome_id" foreignKey="environment_env_biome_id_fkey" implied="false" onDeleteCascade="false" table="environment"/>
+            <child column="env_feature_id" foreignKey="environment_env_feature_id_fkey" implied="false" onDeleteCascade="false" table="environment"/>
+            <child column="env_material_id" foreignKey="environment_env_material_id_fkey" implied="false" onDeleteCascade="false" table="environment"/>
+            <child column="depos_env_id" foreignKey="hydrocarbon_resource_depos_env_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="drive_mech_id" foreignKey="hydrocarbon_resource_drive_mech_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="hc_produced_id" foreignKey="hydrocarbon_resource_hc_produced_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="hcr_geol_age_id" foreignKey="hydrocarbon_resource_hcr_geol_age_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="hcr_id" foreignKey="hydrocarbon_resource_hcr_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="lithology_id" foreignKey="hydrocarbon_resource_lithology_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="salinity_today_id" foreignKey="hydrocarbon_resource_salinity_today_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="sr_dep_env_id" foreignKey="hydrocarbon_resource_sr_dep_env_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="sr_geol_age_id" foreignKey="hydrocarbon_resource_sr_geol_age_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="sr_kerog_type_id" foreignKey="hydrocarbon_resource_sr_kerog_type_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="sr_lithology_id" foreignKey="hydrocarbon_resource_sr_lithology_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+            <child column="availability_id" foreignKey="investigation_availability_id_fkey" implied="false" onDeleteCascade="false" table="investigation"/>
+            <child column="env_package_id" foreignKey="investigation_env_package_id_fkey" implied="false" onDeleteCascade="false" table="investigation"/>
+            <child column="experimental_factor_id" foreignKey="investigation_experimental_factor_id_fkey" implied="false" onDeleteCascade="false" table="investigation"/>
+            <child column="investigation_status_id" foreignKey="investigation_investigation_status_id_fkey" implied="false" onDeleteCascade="false" table="investigation"/>
+            <child column="investigation_type_id" foreignKey="investigation_investigation_type_id_fkey" implied="false" onDeleteCascade="false" table="investigation"/>
+            <child column="quality_id" foreignKey="investigation_quality_id_fkey" implied="false" onDeleteCascade="false" table="investigation"/>
+            <child column="gene_symbol_id" foreignKey="metagenome_result_gene_gene_symbol_id_fkey" implied="false" onDeleteCascade="false" table="metagenome_result_gene"/>
+            <child column="locus_type_id" foreignKey="metagenome_result_gene_locus_type_id_fkey" implied="false" onDeleteCascade="false" table="metagenome_result_gene"/>
+            <child column="rel_to_oxygen_id" foreignKey="nucleic_acid_sequence_source_rel_to_oxygen_id_fkey" implied="false" onDeleteCascade="false" table="nucleic_acid_sequence_source"/>
+            <child column="biotic_relationship_id" foreignKey="organism_biotic_relationship_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="cell_arrangement_id" foreignKey="organism_cell_arrangement_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="cell_shape_id" foreignKey="organism_cell_shape_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="colour_id" foreignKey="organism_colour_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="contaminant_id" foreignKey="organism_contaminant_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="data_source_id" foreignKey="organism_data_source_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="disease_id" foreignKey="organism_disease_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="ecosystem_category_id" foreignKey="organism_ecosystem_category_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="ecosystem_id" foreignKey="organism_ecosystem_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="ecosystem_subtype_id" foreignKey="organism_ecosystem_subtype_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="ecosystem_type_id" foreignKey="organism_ecosystem_type_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="energy_source_id" foreignKey="organism_energy_source_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="gram_staining_id" foreignKey="organism_gram_staining_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="grow_postgate_id" foreignKey="organism_grow_postgate_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="metabolism_id" foreignKey="organism_metabolism_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="motility_id" foreignKey="organism_motility_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="oxygen_requirement_id" foreignKey="organism_oxygen_requirement_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="phenotype_id" foreignKey="organism_phenotype_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="risk_id" foreignKey="organism_risk_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="salinity_id" foreignKey="organism_salinity_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="specific_ecosystem_id" foreignKey="organism_specific_ecosystem_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="sporulation_id" foreignKey="organism_sporulation_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="temperature_range_id" foreignKey="organism_temperature_range_id_fkey" implied="false" onDeleteCascade="false" table="organism"/>
+            <child column="add_recov_method_id" foreignKey="production_data_at_time_of_sampling_add_recov_method_id_fkey" implied="false" onDeleteCascade="false" table="production_data_at_time_of_sampling"/>
+            <child column="salinity_id" foreignKey="production_data_at_time_of_sampling_salinity_id_fkey" implied="false" onDeleteCascade="false" table="production_data_at_time_of_sampling"/>
+            <child column="material_internal_external_id" foreignKey="sample_material_internal_external_id_fkey" implied="false" onDeleteCascade="false" table="sample"/>
+            <child column="material_provider_id" foreignKey="sample_material_provider_id_fkey" implied="false" onDeleteCascade="false" table="sample"/>
+            <child column="material_type_id" foreignKey="sample_material_type_id_fkey" implied="false" onDeleteCascade="false" table="sample"/>
+            <child column="samp_location_point_id" foreignKey="sample_samp_location_point_id_fkey" implied="false" onDeleteCascade="false" table="sample"/>
+            <child column="samp_subtype_id" foreignKey="sample_samp_subtype_id_fkey" implied="false" onDeleteCascade="false" table="sample"/>
+            <child column="samp_type_id" foreignKey="sample_samp_type_id_fkey" implied="false" onDeleteCascade="false" table="sample"/>
+            <child column="surface_sampling_location_id" foreignKey="sample_surface_sampling_location_id_fkey" implied="false" onDeleteCascade="false" table="sample"/>
+            <child column="well_type_classification_id" foreignKey="sample_well_type_classification_id_fkey" implied="false" onDeleteCascade="false" table="sample"/>
+            <child column="target_gene_id" foreignKey="single_gene_analysis_target_gene_id_fkey" implied="false" onDeleteCascade="false" table="single_gene_analysis"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="category" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="attribute" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="value" nullable="false" remarks="" size="256" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="source_type" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="source_detail" nullable="true" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="deprecated" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="7" name="comment" nullable="true" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="attribute_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="auth_group" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_group_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="group_id" foreignKey="group_id_refs_id_f4b32aac" implied="false" onDeleteCascade="false" table="auth_group_permissions"/>
+            <child column="group_id" foreignKey="auth_user_groups_group_id_fkey" implied="false" onDeleteCascade="false" table="auth_user_groups"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="80" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_group_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_group_name_key" unique="true">
+            <column ascending="true" name="name"/>
+         </index>
+         <index name="auth_group_name_like" unique="false">
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table name="auth_group_permissions" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_group_permissions_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="group_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="group_id_refs_id_f4b32aac" implied="false" onDeleteCascade="false" table="auth_group"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="permission_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="auth_group_permissions_permission_id_fkey" implied="false" onDeleteCascade="false" table="auth_permission"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_group_permissions_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_group_permissions_group_id" unique="false">
+            <column ascending="true" name="group_id"/>
+         </index>
+         <index name="auth_group_permissions_group_id_permission_id_key" unique="true">
+            <column ascending="true" name="group_id"/>
+            <column ascending="true" name="permission_id"/>
+         </index>
+         <index name="auth_group_permissions_permission_id" unique="false">
+            <column ascending="true" name="permission_id"/>
+         </index>
+      </table>
+      <table name="auth_permission" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_permission_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="permission_id" foreignKey="auth_group_permissions_permission_id_fkey" implied="false" onDeleteCascade="false" table="auth_group_permissions"/>
+            <child column="permission_id" foreignKey="auth_user_user_permissions_permission_id_fkey" implied="false" onDeleteCascade="false" table="auth_user_user_permissions"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="content_type_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="auth_permission_content_type_id_fkey" implied="false" onDeleteCascade="false" table="django_content_type"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="codename" nullable="false" remarks="" size="100" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_permission_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_permission_content_type_id" unique="false">
+            <column ascending="true" name="content_type_id"/>
+         </index>
+         <index name="auth_permission_content_type_id_codename_key" unique="true">
+            <column ascending="true" name="content_type_id"/>
+            <column ascending="true" name="codename"/>
+         </index>
+      </table>
+      <table name="auth_user" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_user_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="user_id" foreignKey="user_id_refs_id_40c41112" implied="false" onDeleteCascade="false" table="auth_user_groups"/>
+            <child column="user_id" foreignKey="user_id_refs_id_4dc23c39" implied="false" onDeleteCascade="false" table="auth_user_user_permissions"/>
+            <child column="user_id" foreignKey="user_profile_user_id_fkey" implied="false" onDeleteCascade="false" table="user_profile"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="password" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="6" id="2" name="last_login" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="3" name="is_superuser" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="4" name="username" nullable="false" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="first_name" nullable="false" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="last_name" nullable="false" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="email" nullable="false" remarks="" size="75" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="is_staff" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="9" name="is_active" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="6" id="10" name="date_joined" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_user_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_user_username_key" unique="true">
+            <column ascending="true" name="username"/>
+         </index>
+         <index name="auth_user_username_like" unique="false">
+            <column ascending="true" name="username"/>
+         </index>
+      </table>
+      <table name="auth_user_groups" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_user_groups_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="user_id_refs_id_40c41112" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="group_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="auth_user_groups_group_id_fkey" implied="false" onDeleteCascade="false" table="auth_group"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_user_groups_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_user_groups_group_id" unique="false">
+            <column ascending="true" name="group_id"/>
+         </index>
+         <index name="auth_user_groups_user_id" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+         <index name="auth_user_groups_user_id_group_id_key" unique="true">
+            <column ascending="true" name="user_id"/>
+            <column ascending="true" name="group_id"/>
+         </index>
+      </table>
+      <table name="auth_user_user_permissions" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_user_user_permissions_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="user_id_refs_id_4dc23c39" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="permission_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="auth_user_user_permissions_permission_id_fkey" implied="false" onDeleteCascade="false" table="auth_permission"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_user_user_permissions_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_user_user_permissions_permission_id" unique="false">
+            <column ascending="true" name="permission_id"/>
+         </index>
+         <index name="auth_user_user_permissions_user_id" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+         <index name="auth_user_user_permissions_user_id_permission_id_key" unique="true">
+            <column ascending="true" name="user_id"/>
+            <column ascending="true" name="permission_id"/>
+         </index>
+      </table>
+      <table name="biological_analysis" numRows="492" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('biological_analysis_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="biologicalanalysis_ptr_id" foreignKey="metagenome_analysis_biologicalanalysis_ptr_id_fkey" implied="false" onDeleteCascade="false" table="metagenome_analysis"/>
+            <child column="biologicalanalysis_ptr_id" foreignKey="single_gene_analysis_biologicalanalysis_ptr_id_fkey" implied="false" onDeleteCascade="false" table="single_gene_analysis"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="analysis_name" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="samp_anal_name" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="type_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="biological_analysis_type_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="seq_meth" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="seq_quality_filtering_method" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="6" name="mid_names" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="mid" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="8" name="nucl_acid_ext" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="9" name="adapters" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="nucl_acid_amp" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="11" name="url" nullable="false" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="12" name="reads_count" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="13" name="seq_comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="14" name="seq_reference" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="15" name="seq_status_id" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="16" name="sequencing_center" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="17" name="taxonomic_group" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="6" id="18" name="analysis_date" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="6" id="19" name="upload_date" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="20" name="uploaded_by" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="21" name="sample_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_id_refs_id_a376873e" implied="false" onDeleteCascade="false" table="sample"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="biological_analysis_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="biological_analysis_sample_id" unique="false">
+            <column ascending="true" name="sample_id"/>
+         </index>
+         <index name="biological_analysis_type_id" unique="false">
+            <column ascending="true" name="type_id"/>
+         </index>
+      </table>
+      <table name="country" numRows="239" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('country_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="country_id" foreignKey="environment_country_id_fkey" implied="false" onDeleteCascade="false" table="environment"/>
+            <child column="country_id" foreignKey="organization_country_id_fkey" implied="false" onDeleteCascade="false" table="organization"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="iso" nullable="false" remarks="" size="2" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="name" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="printable_name" nullable="false" remarks="" size="256" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="iso3" nullable="true" remarks="" size="3" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="numcode" nullable="true" remarks="" size="10" type="int4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="country_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="curator_details" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('curator_details_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="curatordetails_id" foreignKey="investigation_curator_details_curatordetails_id_fkey" implied="false" onDeleteCascade="false" table="investigation_curator_details"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="curator_firstname" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="curator_lastname" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="curator_email" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="curator_comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="5" name="curator_affiliation_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="curator_details_curator_affiliation_id_fkey" implied="false" onDeleteCascade="false" table="organization"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="curator_details_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="curator_details_curator_affiliation_id" unique="false">
+            <column ascending="true" name="curator_affiliation_id"/>
+         </index>
+      </table>
+      <table name="environment" numRows="41" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('environment_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="environment_id" foreignKey="environment_id_refs_id_09e4a45e" implied="false" onDeleteCascade="false" table="sample"/>
+         </column>
+         <column autoUpdated="false" digits="6" id="1" name="collection_date" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="17" id="2" name="latitude" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="3" name="longitude" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="4" name="country_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="environment_country_id_fkey" implied="false" onDeleteCascade="false" table="country"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="region" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="6" name="alt_elev" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="7" name="depth" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="8" name="env_biome_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="environment_env_biome_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="9" name="env_feature_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="environment_env_feature_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="10" name="env_material_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="environment_env_material_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="environment_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="environment_country_id" unique="false">
+            <column ascending="true" name="country_id"/>
+         </index>
+         <index name="environment_env_biome_id" unique="false">
+            <column ascending="true" name="env_biome_id"/>
+         </index>
+         <index name="environment_env_feature_id" unique="false">
+            <column ascending="true" name="env_feature_id"/>
+         </index>
+         <index name="environment_env_material_id" unique="false">
+            <column ascending="true" name="env_material_id"/>
+         </index>
+      </table>
+      <table name="habitat" numRows="313" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="habitat" nullable="false" remarks="" size="64" type="varchar">
+            <child column="habitat_id" foreignKey="organism_habitats_habitat_id_fkey" implied="false" onDeleteCascade="false" table="organism_habitats"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="description" nullable="true" remarks="" size="128" type="varchar"/>
+         <primaryKey column="habitat" sequenceNumberInPK="1"/>
+         <index name="habitat_pkey" unique="true">
+            <column ascending="true" name="habitat"/>
+         </index>
+         <index name="habitat_habitat_like" unique="false">
+            <column ascending="true" name="habitat"/>
+         </index>
+      </table>
+      <table name="hydrocarbon_chemistry" numRows="305" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('hydrocarbon_chemistry_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="17" id="1" name="api" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="2" name="tan" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="3" name="viscosity" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="4" name="saturates_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="5" name="aromatics_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="6" name="resins_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="7" name="asphaltenes_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="8" name="methane_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="9" name="naph_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="10" name="olef_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="11" name="paraf_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="12" name="wax_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="13" name="c12_c19" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="14" name="c20_c35" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="15" name="c2_c6" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="16" name="c36plus" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="17" name="c7_c11" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="18" name="mah_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="19" name="pah_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="20" name="polysufides_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="21" name="sg_oil_phase" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="6" id="22" name="hc_analysis_date" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="23" name="hc_comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="24" name="hc_reference" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="25" name="sample_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_id_refs_id_e333d0fc" implied="false" onDeleteCascade="false" table="sample"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="hydrocarbon_chemistry_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="hydrocarbon_chemistry_sample_id_key" unique="true">
+            <column ascending="true" name="sample_id"/>
+         </index>
+      </table>
+      <table name="hydrocarbon_resource" numRows="31" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('hydrocarbon_resource_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="hydrocarbonresource_id" foreignKey="investigation_hydrocarbon_resource_hydrocarbonresource_id_fkey" implied="false" onDeleteCascade="false" table="investigation_hydrocarbon_resource"/>
+            <child column="hydrocarbon_resource_id" foreignKey="hydrocarbon_resource_id_refs_id_12f31cc4" implied="false" onDeleteCascade="false" table="mineralogy"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="hcr_abbrev" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="hcr_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_hcr_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="hc_produced_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_hc_produced_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="basin" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="field" nullable="false" remarks="" size="40" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="reservoir" nullable="false" remarks="" size="59" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="7" name="hcr_temp_lo" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="8" name="hcr_temp_hi" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="9" name="tvdss_of_hcr_temp" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="10" name="hcr_pressure" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="11" name="tvdss_of_hcr_pressure" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="12" name="permeability" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="13" name="porosity" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="14" name="lithology_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_lithology_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="15" name="depos_env_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_depos_env_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="16" name="hcr_geol_age_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_hcr_geol_age_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="17" name="owc_tvdss" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="18" name="hcr_fw_salinity" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="19" name="sr_kerog_type_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_sr_kerog_type_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="20" name="sr_lithology_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_sr_lithology_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="21" name="sr_dep_env_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_sr_dep_env_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="22" name="sr_geol_age_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_sr_geol_age_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="23" name="hcr_hc_satur_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="24" name="drive_mech_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_drive_mech_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="25" name="unique_resource_name" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="26" name="comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="27" name="reference" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="28" name="salinity_today_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_salinity_today_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="29" name="formation" nullable="false" remarks="" size="64" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="hydrocarbon_resource_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="hydrocarbon_resource_depos_env_id" unique="false">
+            <column ascending="true" name="depos_env_id"/>
+         </index>
+         <index name="hydrocarbon_resource_drive_mech_id" unique="false">
+            <column ascending="true" name="drive_mech_id"/>
+         </index>
+         <index name="hydrocarbon_resource_hc_produced_id" unique="false">
+            <column ascending="true" name="hc_produced_id"/>
+         </index>
+         <index name="hydrocarbon_resource_hcr_geol_age_id" unique="false">
+            <column ascending="true" name="hcr_geol_age_id"/>
+         </index>
+         <index name="hydrocarbon_resource_hcr_id" unique="false">
+            <column ascending="true" name="hcr_id"/>
+         </index>
+         <index name="hydrocarbon_resource_lithology_id" unique="false">
+            <column ascending="true" name="lithology_id"/>
+         </index>
+         <index name="hydrocarbon_resource_salinity_today_id" unique="false">
+            <column ascending="true" name="salinity_today_id"/>
+         </index>
+         <index name="hydrocarbon_resource_sr_dep_env_id" unique="false">
+            <column ascending="true" name="sr_dep_env_id"/>
+         </index>
+         <index name="hydrocarbon_resource_sr_geol_age_id" unique="false">
+            <column ascending="true" name="sr_geol_age_id"/>
+         </index>
+         <index name="hydrocarbon_resource_sr_kerog_type_id" unique="false">
+            <column ascending="true" name="sr_kerog_type_id"/>
+         </index>
+         <index name="hydrocarbon_resource_sr_lithology_id" unique="false">
+            <column ascending="true" name="sr_lithology_id"/>
+         </index>
+      </table>
+      <table name="investigation" numRows="33" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('investigation_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="investigation_id" foreignKey="investigation_id_refs_id_2eb83a55" implied="false" onDeleteCascade="false" table="investigation_curator_details"/>
+            <child column="investigation_id" foreignKey="investigation_id_refs_id_97ea6fc4" implied="false" onDeleteCascade="false" table="investigation_hydrocarbon_resource"/>
+            <child column="investigation_id" foreignKey="investigation_id_refs_id_a9746fac" implied="false" onDeleteCascade="false" table="investigation_sample"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="project_name" nullable="false" remarks="" size="192" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="experimental_factor_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_experimental_factor_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="investigation_type_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_investigation_type_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="submitted_to_insdc" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="5" name="availability_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_availability_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="6" id="6" name="completion_date" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="7" name="contact_id" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="gold_project_id" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="6" id="9" name="investigation_start_date" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="10" name="keywords" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="11" name="ncbi_project_id" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="12" name="investigation_comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="13" name="investigation_description" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="14" name="investigation_reference" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="15" name="investigation_status_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_investigation_status_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="16" name="investigation_publication" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="17" name="quality_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_quality_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="18" name="purpose" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="19" name="env_package_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_env_package_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="investigation_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="investigation_availability_id" unique="false">
+            <column ascending="true" name="availability_id"/>
+         </index>
+         <index name="investigation_env_package_id" unique="false">
+            <column ascending="true" name="env_package_id"/>
+         </index>
+         <index name="investigation_experimental_factor_id" unique="false">
+            <column ascending="true" name="experimental_factor_id"/>
+         </index>
+         <index name="investigation_investigation_status_id" unique="false">
+            <column ascending="true" name="investigation_status_id"/>
+         </index>
+         <index name="investigation_investigation_type_id" unique="false">
+            <column ascending="true" name="investigation_type_id"/>
+         </index>
+         <index name="investigation_quality_id" unique="false">
+            <column ascending="true" name="quality_id"/>
+         </index>
+      </table>
+      <table name="investigation_curator_details" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('investigation_curator_details_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="investigation_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_id_refs_id_2eb83a55" implied="false" onDeleteCascade="false" table="investigation"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="curatordetails_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_curator_details_curatordetails_id_fkey" implied="false" onDeleteCascade="false" table="curator_details"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="investigation_curator_details_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="investigation_curator_details_curatordetails_id" unique="false">
+            <column ascending="true" name="curatordetails_id"/>
+         </index>
+         <index name="investigation_curator_details_investigation_id" unique="false">
+            <column ascending="true" name="investigation_id"/>
+         </index>
+         <index name="investigation_curator_details_investigation_id_curatordetai_key" unique="true">
+            <column ascending="true" name="investigation_id"/>
+            <column ascending="true" name="curatordetails_id"/>
+         </index>
+      </table>
+      <table name="investigation_hydrocarbon_resource" numRows="33" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('investigation_hydrocarbon_resource_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="investigation_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_id_refs_id_97ea6fc4" implied="false" onDeleteCascade="false" table="investigation"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="hydrocarbonresource_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_hydrocarbon_resource_hydrocarbonresource_id_fkey" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="investigation_hydrocarbon_resource_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="investigation_hydrocarbon_res_investigation_id_hydrocarbonr_key" unique="true">
+            <column ascending="true" name="investigation_id"/>
+            <column ascending="true" name="hydrocarbonresource_id"/>
+         </index>
+         <index name="investigation_hydrocarbon_resource_hydrocarbonresource_id" unique="false">
+            <column ascending="true" name="hydrocarbonresource_id"/>
+         </index>
+         <index name="investigation_hydrocarbon_resource_investigation_id" unique="false">
+            <column ascending="true" name="investigation_id"/>
+         </index>
+      </table>
+      <table name="investigation_sample" numRows="305" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('investigation_sample_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="investigation_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="investigation_id_refs_id_a9746fac" implied="false" onDeleteCascade="false" table="investigation"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="sample_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_id_refs_id_edb17f07" implied="false" onDeleteCascade="false" table="sample"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="investigation_sample_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="investigation_sample_investigation_id" unique="false">
+            <column ascending="true" name="investigation_id"/>
+         </index>
+         <index name="investigation_sample_investigation_id_sample_id_key" unique="true">
+            <column ascending="true" name="investigation_id"/>
+            <column ascending="true" name="sample_id"/>
+         </index>
+         <index name="investigation_sample_sample_id" unique="false">
+            <column ascending="true" name="sample_id"/>
+         </index>
+      </table>
+      <table name="metabolism_type" numRows="25" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="type" nullable="false" remarks="" size="64" type="varchar">
+            <child column="metabolismtype_id" foreignKey="organism_metabolism_type_metabolismtype_id_fkey" implied="false" onDeleteCascade="false" table="organism_metabolism_type"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="description" nullable="true" remarks="" size="128" type="varchar"/>
+         <primaryKey column="type" sequenceNumberInPK="1"/>
+         <index name="metabolism_type_pkey" unique="true">
+            <column ascending="true" name="type"/>
+         </index>
+         <index name="metabolism_type_type_like" unique="false">
+            <column ascending="true" name="type"/>
+         </index>
+      </table>
+      <table name="metadata_info" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('metadata_info_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="category" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="attribute" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="info" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="metadata_info_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="metagenome_analysis" numRows="10" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="biologicalanalysis_ptr_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="metagenome_analysis_id" foreignKey="metagenome_result_metagenome_analysis_id_fkey" implied="false" onDeleteCascade="false" table="metagenome_result"/>
+            <parent column="id" foreignKey="metagenome_analysis_biologicalanalysis_ptr_id_fkey" implied="false" onDeleteCascade="false" table="biological_analysis"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="assembly" nullable="false" remarks="" size="256" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="annot_source" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="assembly_name" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="assembly_size" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="contig_count" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="gene_count" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="library_method" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="library_size" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="9" name="vector" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="total_sequence_length" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="11" name="total_gene_count" nullable="true" remarks="" size="10" type="int4"/>
+         <primaryKey column="biologicalanalysis_ptr_id" sequenceNumberInPK="1"/>
+         <index name="metagenome_analysis_pkey" unique="true">
+            <column ascending="true" name="biologicalanalysis_ptr_id"/>
+         </index>
+      </table>
+      <table name="metagenome_result" numRows="541130" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('metagenome_result_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="metagenome_result_id" foreignKey="metagenome_result_gene_metagenome_result_id_fkey" implied="false" onDeleteCascade="false" table="metagenome_result_gene"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="scaffold_id" nullable="false" remarks="" size="22" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="sequence_length" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="gene_count" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="2" id="4" name="lineage_percentage" nullable="true" remarks="" size="5" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="5" name="metagenome_analysis_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="biologicalanalysis_ptr_id" foreignKey="metagenome_result_metagenome_analysis_id_fkey" implied="false" onDeleteCascade="false" table="metagenome_analysis"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="6" name="organism_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_id_refs_id_ef2973b6" implied="false" onDeleteCascade="false" table="organism"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="metagenome_result_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="metagenome_result_metagenome_analysis_id" unique="false">
+            <column ascending="true" name="metagenome_analysis_id"/>
+         </index>
+         <index name="metagenome_result_organism_id" unique="false">
+            <column ascending="true" name="organism_id"/>
+         </index>
+      </table>
+      <table name="metagenome_result_gene" numRows="1064041" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('metagenome_result_gene_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="gene_id" nullable="false" remarks="" size="45" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="gene_name" nullable="false" remarks="" size="148" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="gene_symbol_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="metagenome_result_gene_gene_symbol_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="taxon_id" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="assembled" nullable="false" remarks="" size="19" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="locus_type_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="metagenome_result_gene_locus_type_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="7" name="start_coord" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="8" name="end_coord" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="9" name="gene_length" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="10" name="strand" nullable="false" remarks="" size="11" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="11" name="scaffold_id" nullable="false" remarks="" size="22" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="12" name="scaffold_length" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="2" id="13" name="scaffold_gc_content" nullable="true" remarks="" size="9" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="14" name="scaffold_read_depth" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="15" name="no_of_genes_on_scaffold" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="16" name="cog_id" nullable="false" remarks="" size="35" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="17" name="cog_function" nullable="false" remarks="" size="188" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="18" name="pfam_id" nullable="false" remarks="" size="63" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="19" name="pfam_function" nullable="false" remarks="" size="201" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="20" name="tigrfam_id" nullable="false" remarks="" size="16" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="21" name="tigrfam_function" nullable="false" remarks="" size="16" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="22" name="ec_number" nullable="false" remarks="" size="22" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="23" name="enzyme_function" nullable="false" remarks="" size="124" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="24" name="ko_id" nullable="false" remarks="" size="19" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="25" name="ko_function" nullable="false" remarks="" size="132" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="26" name="metagenome_result_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="metagenome_result_gene_metagenome_result_id_fkey" implied="false" onDeleteCascade="false" table="metagenome_result"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="metagenome_result_gene_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="metagenome_result_gene_gene_symbol_id" unique="false">
+            <column ascending="true" name="gene_symbol_id"/>
+         </index>
+         <index name="metagenome_result_gene_locus_type_id" unique="false">
+            <column ascending="true" name="locus_type_id"/>
+         </index>
+         <index name="metagenome_result_gene_metagenome_result_id" unique="false">
+            <column ascending="true" name="metagenome_result_id"/>
+         </index>
+      </table>
+      <table name="metahcr_database" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('metahcr_database_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="default_database_id" foreignKey="user_profile_default_database_id_fkey" implied="false" onDeleteCascade="false" table="user_profile"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="description" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="6" id="3" name="creation_date" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="6" id="4" name="last_update" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="5" name="version" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="organization_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="m2sc_database_organization_id_fkey" implied="false" onDeleteCascade="false" table="organization"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="m2sc_database_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="m2sc_database_organization_id" unique="false">
+            <column ascending="true" name="organization_id"/>
+         </index>
+      </table>
+      <table name="mineralogy" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mineralogy_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="17" id="1" name="anhydrite" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="2" name="carbonate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="3" name="carbonate_cement" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="4" name="clay" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="5" name="dolomite" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="6" name="feldspar" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="7" name="mica" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="6" id="8" name="mineralogy_analysis_date" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="9" name="minearlogy_comment" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="10" name="mineralogy_reference" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="17" id="11" name="quartz" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="12" name="siderite" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="13" name="hematite" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="14" name="chlorite" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="15" name="illite" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="16" name="magnetite" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="17" name="smectite" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="18" name="hydrocarbon_resource_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="hydrocarbon_resource_id_refs_id_12f31cc4" implied="false" onDeleteCascade="false" table="hydrocarbon_resource"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mineralogy_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="mineralogy_hydrocarbon_resource_id_key" unique="true">
+            <column ascending="true" name="hydrocarbon_resource_id"/>
+         </index>
+      </table>
+      <table name="nucleic_acid_sequence_source" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('nucleic_acid_sequence_source_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="samp_mat_process" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="17" id="2" name="samp_size" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="3" name="source_mat_id" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="rel_to_oxygen_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="nucleic_acid_sequence_source_rel_to_oxygen_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="samp_collect_device" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="6" name="sample_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_id_refs_id_e16ccc6f" implied="false" onDeleteCascade="false" table="sample"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="nucleic_acid_sequence_source_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="nucleic_acid_sequence_source_rel_to_oxygen_id" unique="false">
+            <column ascending="true" name="rel_to_oxygen_id"/>
+         </index>
+         <index name="nucleic_acid_sequence_source_sample_id_key" unique="true">
+            <column ascending="true" name="sample_id"/>
+         </index>
+      </table>
+      <table name="operation" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('operation_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="17" id="1" name="corr_rate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="2" name="caliper_penetration_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="3" name="p_wo_wall_loss_pc" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="4" name="pipeline_metallurgy" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="5" name="scale_severity" nullable="false" remarks="" size="17" type="float8"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="operation_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="organism" numRows="45906" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('organism_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="organism_id" foreignKey="organism_id_refs_id_ef2973b6" implied="false" onDeleteCascade="false" table="metagenome_result"/>
+            <child column="organism_id" foreignKey="organism_id_refs_id_c9e49943" implied="false" onDeleteCascade="false" table="organism_habitats"/>
+            <child column="organism_id" foreignKey="organism_id_refs_id_cba7ce40" implied="false" onDeleteCascade="false" table="organism_metabolism_type"/>
+            <child column="organism_id" foreignKey="organism_id_refs_id_cfea0c54" implied="false" onDeleteCascade="false" table="single_gene_result"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="superkingdom" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="phylum" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="subphylum" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="bio_class" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="bio_order" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="family" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="genus" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="species" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="9" name="strain" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="ncbi_taxon_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="11" name="description" nullable="false" remarks="" size="256" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="12" name="risk_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_risk_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="13" name="grow_postgate_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_grow_postgate_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="14" name="temperature_range_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_temperature_range_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="15" name="oxygen_requirement_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_oxygen_requirement_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="16" name="cell_shape_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_cell_shape_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="17" name="motility_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_motility_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="18" name="sporulation_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_sporulation_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="19" name="salinity_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_salinity_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="20" name="cell_arrangement_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_cell_arrangement_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="21" name="colour_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_colour_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="22" name="gram_staining_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_gram_staining_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="23" name="disease_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_disease_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="24" name="metabolism_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_metabolism_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="25" name="phenotype_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_phenotype_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="26" name="energy_source_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_energy_source_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="27" name="biotic_relationship_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_biotic_relationship_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="28" name="a_16s_sequence" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="29" name="accession_no_cultured" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="30" name="accession_no_uncultured" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="31" name="ss_rdb_id" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="2" id="32" name="temperature_min" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="2" id="33" name="temperature_max" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="2" id="34" name="temperature_opt_c" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="2" id="35" name="ph_min" nullable="true" remarks="" size="4" type="numeric"/>
+         <column autoUpdated="false" digits="2" id="36" name="ph_max" nullable="true" remarks="" size="4" type="numeric"/>
+         <column autoUpdated="false" digits="2" id="37" name="ph_opt" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="2" id="38" name="cell_diameter" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="2" id="39" name="cell_length" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="40" name="comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="41" name="clone" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="42" name="closest_cultured_relative" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="43" name="closest_relative" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="2" id="44" name="max_salinity_tds" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="2" id="45" name="min_salinity_tds" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="2" id="46" name="opt_salinity_tds" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="2" id="47" name="true_tds_or_tds_equiv" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="48" name="ncbi_ref_seq" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="49" name="reference" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="2" id="50" name="relative_abundance" nullable="true" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="51" name="similarity" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="52" name="similarity_clos_cul" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="53" name="gold_project_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="54" name="genus_synonyms" nullable="true" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="55" name="species_synonyms" nullable="true" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="56" name="culture_collection_id" nullable="true" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="57" name="ecosystem_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_ecosystem_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="58" name="ecosystem_category_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_ecosystem_category_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="59" name="ecosystem_type_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_ecosystem_type_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="60" name="ecosystem_subtype_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_ecosystem_subtype_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="61" name="specific_ecosystem_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_specific_ecosystem_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="62" name="data_source_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_data_source_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="63" name="contaminant_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_contaminant_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="organism_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="organism_biotic_relationship_id" unique="false">
+            <column ascending="true" name="biotic_relationship_id"/>
+         </index>
+         <index name="organism_cell_arrangement_id" unique="false">
+            <column ascending="true" name="cell_arrangement_id"/>
+         </index>
+         <index name="organism_cell_shape_id" unique="false">
+            <column ascending="true" name="cell_shape_id"/>
+         </index>
+         <index name="organism_colour_id" unique="false">
+            <column ascending="true" name="colour_id"/>
+         </index>
+         <index name="organism_contaminant_id" unique="false">
+            <column ascending="true" name="contaminant_id"/>
+         </index>
+         <index name="organism_data_source_id" unique="false">
+            <column ascending="true" name="data_source_id"/>
+         </index>
+         <index name="organism_disease_id" unique="false">
+            <column ascending="true" name="disease_id"/>
+         </index>
+         <index name="organism_ecosystem_category_id" unique="false">
+            <column ascending="true" name="ecosystem_category_id"/>
+         </index>
+         <index name="organism_ecosystem_id" unique="false">
+            <column ascending="true" name="ecosystem_id"/>
+         </index>
+         <index name="organism_ecosystem_subtype_id" unique="false">
+            <column ascending="true" name="ecosystem_subtype_id"/>
+         </index>
+         <index name="organism_ecosystem_type_id" unique="false">
+            <column ascending="true" name="ecosystem_type_id"/>
+         </index>
+         <index name="organism_energy_source_id" unique="false">
+            <column ascending="true" name="energy_source_id"/>
+         </index>
+         <index name="organism_gram_staining_id" unique="false">
+            <column ascending="true" name="gram_staining_id"/>
+         </index>
+         <index name="organism_grow_postgate_id" unique="false">
+            <column ascending="true" name="grow_postgate_id"/>
+         </index>
+         <index name="organism_metabolism_id" unique="false">
+            <column ascending="true" name="metabolism_id"/>
+         </index>
+         <index name="organism_motility_id" unique="false">
+            <column ascending="true" name="motility_id"/>
+         </index>
+         <index name="organism_oxygen_requirement_id" unique="false">
+            <column ascending="true" name="oxygen_requirement_id"/>
+         </index>
+         <index name="organism_phenotype_id" unique="false">
+            <column ascending="true" name="phenotype_id"/>
+         </index>
+         <index name="organism_risk_id" unique="false">
+            <column ascending="true" name="risk_id"/>
+         </index>
+         <index name="organism_salinity_id" unique="false">
+            <column ascending="true" name="salinity_id"/>
+         </index>
+         <index name="organism_specific_ecosystem_id" unique="false">
+            <column ascending="true" name="specific_ecosystem_id"/>
+         </index>
+         <index name="organism_sporulation_id" unique="false">
+            <column ascending="true" name="sporulation_id"/>
+         </index>
+         <index name="organism_temperature_range_id" unique="false">
+            <column ascending="true" name="temperature_range_id"/>
+         </index>
+      </table>
+      <table name="organism_habitats" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('organism_habitats_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="organism_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_id_refs_id_c9e49943" implied="false" onDeleteCascade="false" table="organism"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="habitat_id" nullable="false" remarks="" size="64" type="varchar">
+            <parent column="habitat" foreignKey="organism_habitats_habitat_id_fkey" implied="false" onDeleteCascade="false" table="habitat"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="organism_habitats_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="organism_habitats_habitat_id" unique="false">
+            <column ascending="true" name="habitat_id"/>
+         </index>
+         <index name="organism_habitats_habitat_id_like" unique="false">
+            <column ascending="true" name="habitat_id"/>
+         </index>
+         <index name="organism_habitats_organism_id" unique="false">
+            <column ascending="true" name="organism_id"/>
+         </index>
+         <index name="organism_habitats_organism_id_habitat_id_key" unique="true">
+            <column ascending="true" name="organism_id"/>
+            <column ascending="true" name="habitat_id"/>
+         </index>
+      </table>
+      <table name="organism_metabolism_type" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('organism_metabolism_type_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="organism_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_id_refs_id_cba7ce40" implied="false" onDeleteCascade="false" table="organism"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="metabolismtype_id" nullable="false" remarks="" size="64" type="varchar">
+            <parent column="type" foreignKey="organism_metabolism_type_metabolismtype_id_fkey" implied="false" onDeleteCascade="false" table="metabolism_type"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="organism_metabolism_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="organism_metabolism_type_metabolismtype_id" unique="false">
+            <column ascending="true" name="metabolismtype_id"/>
+         </index>
+         <index name="organism_metabolism_type_metabolismtype_id_like" unique="false">
+            <column ascending="true" name="metabolismtype_id"/>
+         </index>
+         <index name="organism_metabolism_type_organism_id" unique="false">
+            <column ascending="true" name="organism_id"/>
+         </index>
+         <index name="organism_metabolism_type_organism_id_metabolismtype_id_key" unique="true">
+            <column ascending="true" name="organism_id"/>
+            <column ascending="true" name="metabolismtype_id"/>
+         </index>
+      </table>
+      <table name="organization" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('organization_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="curator_affiliation_id" foreignKey="curator_details_curator_affiliation_id_fkey" implied="false" onDeleteCascade="false" table="curator_details"/>
+            <child column="organization_id" foreignKey="m2sc_database_organization_id_fkey" implied="false" onDeleteCascade="false" table="metahcr_database"/>
+            <child column="organization_id" foreignKey="user_profile_organization_id_fkey" implied="false" onDeleteCascade="false" table="user_profile"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="address1" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="address2" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="postcode" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="country_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organization_country_id_fkey" implied="false" onDeleteCascade="false" table="country"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="6" name="contact_name" nullable="true" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="contact_email" nullable="true" remarks="" size="64" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="organization_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="organization_country_id" unique="false">
+            <column ascending="true" name="country_id"/>
+         </index>
+      </table>
+      <table name="production_data_at_time_of_sampling" numRows="305" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('production_data_at_time_of_sampling_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="6" id="1" name="prod_start_date" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="17" id="2" name="prod_rate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="3" name="water_production_rate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="4" name="water_cut" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="5" name="iwf" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="6" name="add_recov_method_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="production_data_at_time_of_sampling_add_recov_method_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="6" id="7" name="iw_bt_date_well" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="8" name="biocide" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="9" name="biocide_admin_method" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="10" name="chem_treatment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="11" name="chem_treatment_method" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="17" id="12" name="samp_loc_corr_rate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="13" name="gas_rate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="14" name="oil_rate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="15" name="comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="16" name="reference" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="17" id="17" name="pw_per_day" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="18" name="prod_conn_to_injctr" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="17" id="19" name="gas_oil_ratio" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="20" name="salinity_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="production_data_at_time_of_sampling_salinity_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="21" name="operator" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="22" name="sample_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_id_refs_id_57930d29" implied="false" onDeleteCascade="false" table="sample"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="production_data_at_time_of_sampling_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="production_data_at_time_of_sampling_add_recov_method_id" unique="false">
+            <column ascending="true" name="add_recov_method_id"/>
+         </index>
+         <index name="production_data_at_time_of_sampling_salinity_id" unique="false">
+            <column ascending="true" name="salinity_id"/>
+         </index>
+         <index name="production_data_at_time_of_sampling_sample_id_key" unique="true">
+            <column ascending="true" name="sample_id"/>
+         </index>
+      </table>
+      <table name="sample" numRows="305" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sample_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="sample_id" foreignKey="sample_id_refs_id_a376873e" implied="false" onDeleteCascade="false" table="biological_analysis"/>
+            <child column="sample_id" foreignKey="sample_id_refs_id_e333d0fc" implied="false" onDeleteCascade="false" table="hydrocarbon_chemistry"/>
+            <child column="sample_id" foreignKey="sample_id_refs_id_edb17f07" implied="false" onDeleteCascade="false" table="investigation_sample"/>
+            <child column="sample_id" foreignKey="sample_id_refs_id_e16ccc6f" implied="false" onDeleteCascade="false" table="nucleic_acid_sequence_source"/>
+            <child column="sample_id" foreignKey="sample_id_refs_id_57930d29" implied="false" onDeleteCascade="false" table="production_data_at_time_of_sampling"/>
+            <child column="sample_id" foreignKey="water_chemistry_sample_id_fkey" implied="false" onDeleteCascade="false" table="water_chemistry"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="source_mat_id" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="samp_well_name" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="win" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="samp_type_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_samp_type_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="samp_subtype_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_samp_subtype_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="6" name="samp_location_point_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_samp_location_point_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="7" name="temp" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="8" name="pressure" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="9" name="samp_tvdss" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="10" name="samp_md" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="11" name="elev" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="12" name="oxy_stat_sample" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="13" name="samp_preserv" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="14" name="samp_transport_cond_duration" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="15" name="samp_transport_cond_temp" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="16" name="samp_store_temp" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="17" name="samp_store_dur" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="18" name="samp_store_loc" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="19" name="samp_vwa_dna_extr" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="20" name="organism_count" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="21" name="organism_count_qpcr_info" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="22" name="misc_param" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="23" name="additional_info" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="17" id="24" name="rc_distance_from_hc_water_contact" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="25" name="samp_comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="26" name="samp_description" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="27" name="samp_location_comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="28" name="samp_location_reference" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="29" name="samp_location_reservoir_name" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="30" name="samp_name" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="31" name="samp_name_alias" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="32" name="material_provider_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_material_provider_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="33" name="material_internal_external_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_material_internal_external_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="34" name="material_type_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_material_type_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="35" name="surface_sampling_location_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_surface_sampling_location_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="36" name="well_type_classification_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="sample_well_type_classification_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="37" name="environment_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="environment_id_refs_id_09e4a45e" implied="false" onDeleteCascade="false" table="environment"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="sample_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="sample_environment_id" unique="false">
+            <column ascending="true" name="environment_id"/>
+         </index>
+         <index name="sample_material_internal_external_id" unique="false">
+            <column ascending="true" name="material_internal_external_id"/>
+         </index>
+         <index name="sample_material_provider_id" unique="false">
+            <column ascending="true" name="material_provider_id"/>
+         </index>
+         <index name="sample_material_type_id" unique="false">
+            <column ascending="true" name="material_type_id"/>
+         </index>
+         <index name="sample_samp_location_point_id" unique="false">
+            <column ascending="true" name="samp_location_point_id"/>
+         </index>
+         <index name="sample_samp_subtype_id" unique="false">
+            <column ascending="true" name="samp_subtype_id"/>
+         </index>
+         <index name="sample_samp_type_id" unique="false">
+            <column ascending="true" name="samp_type_id"/>
+         </index>
+         <index name="sample_surface_sampling_location_id" unique="false">
+            <column ascending="true" name="surface_sampling_location_id"/>
+         </index>
+         <index name="sample_well_type_classification_id" unique="false">
+            <column ascending="true" name="well_type_classification_id"/>
+         </index>
+      </table>
+      <table name="single_gene_analysis" numRows="482" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="biologicalanalysis_ptr_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="single_gene_analysis_id" foreignKey="single_gene_result_single_gene_analysis_id_fkey" implied="false" onDeleteCascade="false" table="single_gene_result"/>
+            <parent column="id" foreignKey="single_gene_analysis_biologicalanalysis_ptr_id_fkey" implied="false" onDeleteCascade="false" table="biological_analysis"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="chimera_check" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="target_gene_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="single_gene_analysis_target_gene_id_fkey" implied="false" onDeleteCascade="false" table="attribute"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="target_subfragment" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="pcr_primers" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="pcr_cond" nullable="false" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="sop" nullable="false" remarks="" size="256" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="nested_pcr_required" nullable="false" remarks="" size="1" type="bool"/>
+         <primaryKey column="biologicalanalysis_ptr_id" sequenceNumberInPK="1"/>
+         <index name="single_gene_analysis_pkey" unique="true">
+            <column ascending="true" name="biologicalanalysis_ptr_id"/>
+         </index>
+         <index name="single_gene_analysis_target_gene_id" unique="false">
+            <column ascending="true" name="target_gene_id"/>
+         </index>
+      </table>
+      <table name="single_gene_result" numRows="39992" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('single_gene_result_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="OTU_name" nullable="true" remarks="" size="64" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="counts" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="organism_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="organism_id_refs_id_cfea0c54" implied="false" onDeleteCascade="false" table="organism"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="name" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="repseq" nullable="false" remarks="" size="32" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="seq" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="2" id="7" name="score" nullable="false" remarks="" size="8" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="8" name="abundance" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="9" name="single_gene_analysis_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="biologicalanalysis_ptr_id" foreignKey="single_gene_result_single_gene_analysis_id_fkey" implied="false" onDeleteCascade="false" table="single_gene_analysis"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="single_gene_result_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="single_gene_result_organism_id" unique="false">
+            <column ascending="true" name="organism_id"/>
+         </index>
+         <index name="single_gene_result_single_gene_analysis_id" unique="false">
+            <column ascending="true" name="single_gene_analysis_id"/>
+         </index>
+      </table>
+      <table name="user_profile" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('user_profile_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="user_profile_user_id_fkey" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="organization_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="user_profile_organization_id_fkey" implied="false" onDeleteCascade="false" table="organization"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="default_database_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="user_profile_default_database_id_fkey" implied="false" onDeleteCascade="false" table="metahcr_database"/>
+         </column>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="4" name="reset_password" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="6" id="5" name="date_of_password" nullable="true" remarks="" size="15" type="time"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="user_profile_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="user_profile_default_database_id" unique="false">
+            <column ascending="true" name="default_database_id"/>
+         </index>
+         <index name="user_profile_organization_id" unique="false">
+            <column ascending="true" name="organization_id"/>
+         </index>
+         <index name="user_profile_user_id_key" unique="true">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table name="water_chemistry" numRows="305" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('water_chemistry_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="17" id="1" name="ph" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="2" name="samp_salinity" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="3" name="alkalinity" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="4" name="sulfate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="5" name="sulfide" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="6" name="tot_sulfur" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="7" name="nitrate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="8" name="nitrite" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="9" name="ammonium" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="10" name="tot_nitro" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="11" name="diss_iron" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="12" name="sodium" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="13" name="potassium" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="14" name="magnesium" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="15" name="calcium" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="16" name="tot_iron" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="17" name="diss_org_carb" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="18" name="diss_inorg_carb" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="19" name="diss_inorg_phosp" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="20" name="tot_phosp" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="21" name="suspend_solids" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="22" name="density" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="23" name="diss_carb_dioxide" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="24" name="diss_oxygen" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="25" name="vfa" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="26" name="benzene" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="27" name="toluene" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="28" name="ethylbenzene" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="29" name="xylene" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="30" name="sulfate_fw" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="31" name="vfa_fw" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="32" name="vfa_acetate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="33" name="additional_carbon_source" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="34" name="aluminum" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="35" name="barium" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="36" name="bicarbonate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="37" name="boron" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="38" name="bromide" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="39" name="vfa_butyrate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="40" name="carbonate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="41" name="chloride" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="42" name="cobalt" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="43" name="conductivity" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="44" name="fluorine" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="45" name="vfa_formate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="46" name="h2po4" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="47" name="hydroxide" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="48" name="lithium" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="49" name="manganese" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="50" name="molybdenum" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="51" name="napthenic_acids" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="52" name="nickel" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="53" name="vfa_proprionate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="54" name="resistivity" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="55" name="silicon" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="56" name="sg_aqueous_phase" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="57" name="strontium" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="58" name="thiosulfate" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="6" id="59" name="wc_analysis_date" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="60" name="wc_comment" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="61" name="wc_reference" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="62" name="sample_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="water_chemistry_sample_id_fkey" implied="false" onDeleteCascade="false" table="sample"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="water_chemistry_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="water_chemistry_sample_id_key" unique="true">
+            <column ascending="true" name="sample_id"/>
+         </index>
+      </table>
+   </tables>
+</database>

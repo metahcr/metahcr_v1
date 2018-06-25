@@ -1,0 +1,45 @@
+<div id="infobox">
+    <span id="icon" class="info"></span><span class="text">
+    <strong>MetaHCR information sheet for the organism family {{ family }}</strong></span>
+</div>
+<table id="organism_family" class="easyui-treegrid" style="height:500px;">
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        format_ncbi_id = function (value, row, index) {
+            if (value === undefined || value == '') {
+                return '';
+            } else {
+                return '<a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=' +
+                        value + '" target="_blank">' + value + '</a>'
+            }
+        };
+        $("#organism_family").treegrid({
+            idField: 'id',
+            treeField: 'name',
+            striped: true,
+            loadMsg: 'Processing, please wait...',
+            method: 'get',
+            url: '/organism/family/{{ family }}',
+            columns: [[
+                {title: 'Name', field: 'name'},
+                {title: 'Metabolism Type', field: 'metabolism_type'},
+                {title: 'Threat', field: 'risk'},
+                {title: 'Postgate?', field: 'grow_postgate'},
+                {title: 'NCBI', field: 'ncbi_taxon_id', formatter: format_ncbi_id},
+                {title: 'Habitats', field: 'habitats'},
+                {title: 'Temp. Range', field: 'temperature_range'},
+                {title: 'Oxygen Req.', field: 'oxygen_requirement'},
+                {title: 'Cell Shape', field: 'cell_shape'},
+                {title: 'Motilty', field: 'motility'},
+                {title: 'Sporulation', field: 'sporulation'},
+                {title: 'Salinity', field: 'salinity'},
+                {title: 'Cell Arrang.', field: 'cell_arrangement'},
+                {title: 'Colour', field: 'colour'},
+                {title: 'Gram Stain.', field: 'gram_staining'},
+                {title: 'Phenotype', field: 'phenotype'}
+            ]]
+        });
+    });
+
+</script>

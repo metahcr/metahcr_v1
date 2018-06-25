@@ -1,0 +1,225 @@
+<div id="infobox">
+    <span id="icon" class="info"></span><span class="text"><strong>MetaHCR information sheet for hydrocarbon
+    resource {{ hcr.field_name }}</strong></span>
+</div>
+<div id="infosheets">
+    <div id="hcr-attributes" class="easyui-panel"
+         style="width: 33%;"
+         data-options="
+                    {% if user.is_staff %}
+                    tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('hydrocarbon-resource', '', {id: {{ hcr.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 0, float: 'left'}
+                    "
+         title="HYDROCARBON RESOURCE ATTRIBUTES">
+        <table class="infosheettable">
+            <tbody>
+            <tr>
+                <td class="key">HCR Abbrev.</td>
+                <td class="value">{{ hcr.hcr_abbrev }}</td>
+            </tr>
+            <tr>
+                <td class="key">HCR</td>
+                <td class="value">{{ hcr.hcr.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">HC Produced</td>
+                <td class="value">{{ hcr.hc_produced.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Basin</td>
+                <td class="value">{{ hcr.basin }}</td>
+            </tr>
+            <tr>
+                <td class="key">Field</td>
+                <td class="value">{{ hcr.field }}</td>
+            </tr>
+            <tr>
+                <td class="key">Reservoir</td>
+                <td class="value">{{ hcr.reservoir }}</td>
+            </tr>
+            <tr>
+                <td class="key">HCR Temps.</td>
+                {% if hcr.hcr_temp_lo and hcr.hcr_temp_hi %}
+                    <td class="value">{{ hcr.hcr_temp_lo }} - {{ hcr.hcr_temp_hi }}</td>
+                {% else %}
+                    <td class="value">{{ hcr.hcr_temp_log }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td class="key">TVDSS of HCR Temp.</td>
+                <td class="value">{{ hcr.tvdss_of_hcr_pressure }}</td>
+            </tr>
+            <tr>
+                <td class="key">Permeability</td>
+                <td class="value">{{ hcr.permeability }}</td>
+            </tr>
+            <tr>
+                <td class="key">Porosity</td>
+                <td class="value">{{ hcr.porosity }}</td>
+            </tr>
+            <tr>
+                <td class="key">Lithology</td>
+                <td class="value">{{ hcr.lithology.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Depos Env.</td>
+                <td class="value">{{ hcr.depos_env.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">HCR Geol. Age</td>
+                <td class="value">{{ hcr.hcr_geol_age.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">OWC TVDSS</td>
+                <td class="value">{{ hcr.owc_tvdss }}</td>
+            </tr>
+            <tr>
+                <td class="key">HCR FW Salinity</td>
+                <td class="value">{{ hcr.hcr_fw_salinity }}</td>
+            </tr>
+            <tr>
+                <td class="key">SR Kerog Type</td>
+                <td class="value">{{ hcr.sr_kerog_type.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">SR Lithology</td>
+                <td class="value">{{ hcr.sr_lithology.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">SR Dep. Env.</td>
+                <td class="value">{{ hcr.sr_dep_env.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">SR Geol. Age</td>
+                <td class="value">{{ hcr.sr_geol_age.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">HCR HC Satur. PC</td>
+                <td class="value">{{ hcr.hcr_hc_satur_pc }}</td>
+            </tr>
+            <tr>
+                <td class="key">Drive Mech.</td>
+                <td class="value">{{ hcr.drive_mech.value }}</td>
+            </tr>
+            <tr>
+                <td class="key">Unique Resource Name</td>
+                <td class="value">{{ hcr.unique_resource_name }}</td>
+            </tr>
+            <tr>
+                <td class="key">Comment</td>
+                <td class="value">{{ hcr.comment }}</td>
+            </tr>
+            <tr>
+                <td class="key">Reference</td>
+                <td class="value">{{ hcr.reference }}</td>
+            </tr>
+            <tr>
+                <td class="key">Salinity Today</td>
+                <td class="value">{{ hcr.salinity_today.value }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="hcr-mineralogy" class="easyui-panel"
+         style="width: 33%;"
+         data-options="
+                    {% if user.is_staff %}
+                    tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('mineralogy', '', {id: {{ hcr.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 0, float: 'left'}
+                    "
+         title="MINERALOGY">
+        <table class="infosheettable">
+            <tbody>
+            <tr>
+                <td class="key">Analysis Date</td>
+                <td class="value">{{ mineralogy.mineralogy_analysis_date }}</td>
+            </tr>
+            <tr>
+                <td class="key">Anhydrite</td>
+                <td class="value">{{ mineralogy.anhydrite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Carbonate</td>
+                <td class="value">{{ mineralogy.carbonate }}</td>
+            </tr>
+            <tr>
+                <td class="key">Carbonate Cement</td>
+                <td class="value">{{ mineralogy.carbonate_cement }}</td>
+            </tr>
+            <tr>
+                <td class="key">Clay</td>
+                <td class="value">{{ mineralogy.clay }}</td>
+            </tr>
+            <tr>
+                <td class="key">Dolomite</td>
+                <td class="value">{{ mineralogy.dolomite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Feldspar</td>
+                <td class="value">{{ mineralogy.feldspar }}</td>
+            </tr>
+            <tr>
+                <td class="key">Mica</td>
+                <td class="value">{{ mineralogy.mica }}</td>
+            </tr>
+            <tr>
+                <td class="key">Quartz</td>
+                <td class="value">{{ mineralogy.quartz }}</td>
+            </tr>
+            <tr>
+                <td class="key">Siderite</td>
+                <td class="value">{{ mineralogy.siderite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Hematite</td>
+                <td class="value">{{ mineralogy.hematite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Chlorite</td>
+                <td class="value">{{ mineralogy.chlorite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Illite</td>
+                <td class="value">{{ mineralogy.illite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Magnetite</td>
+                <td class="value">{{ mineralogy.magnetite }}</td>
+            </tr>
+            <tr>
+                <td class="key">Smectite</td>
+                <td class="value">{{ mineralogy.smectite }}</td>
+            </tr>
+            {#        <tr>#}
+            {#            <td class="key">Reference</td>#}
+            {#            <td class="value">{{ mineralogy.mineralogy_reference }}</td>#}
+            {#        </tr>#}
+            {#        <tr>#}
+            {#            <td class="key">Comment</td>#}
+            {#            <td class="value">{{ mineralogy.mineralogy_comment }}</td>#}
+            {#        </tr>#}
+            </tbody>
+        </table>
+    </div>
+    <div class="if-col3"></div>
+</div>
+{% block javascript %}
+    <script type="text/javascript">
+        // These easyui components need to be initialized here or they will not be displayed correctly on the page.
+        // This might be because this template is loaded into an existing page?
+        $('#hcr-attributes').panel();
+        $('#hcr-mineralogy').panel();
+    </script>
+{% endblock %}

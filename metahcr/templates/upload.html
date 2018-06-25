@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} - Upload Analyses{% endblock %}
+{% block content %}
+    <div class="instructions" style="font-size: .8em;">
+        To upload Single Gene and Metagenome Analyses results:
+        <ol>
+            <li>Choose either the Single Gene or Metagenome tab to the right.</li>
+            <li>Follow the instructions in the tab area.</li>
+        </ol>
+    </div>
+    <div class="easyui-layout" style="width: 100%; height: 800px;">
+        <div id="sample-results-panel" data-options="region:'center',title:'Samples',split:true" style="width: 66%;">
+            <table id="sample-results"></table>
+            <div id="infosheets-accordion" class="easyui-accordion" data-options="selected: false">
+            </div>
+        </div>
+        <div id="analysis-upload-panel"
+             data-options="region:'east', title:'Analyses Uploading and Maintenance',split:true"
+             style="width: 33%;">
+            <div id="upload-tabs"
+                 class="easyui-tabs" data-options="width:'100%'">
+                <div id="single-gene-analysis" title="Single Gene Analysis">
+                    <div id="sga-analysis">
+                        {% include "upload_sga.html" %}
+                    </div>
+                </div>
+                <div id="metagenome-analysis" title="Metagenome Analysis">
+                    <div id="mga-analysis">
+                        {% include "upload_mga.html" %}
+                    </div>
+                </div>
+                <div title="Analyses Maintenance">
+                    {% include "upload_maint.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript" language="javascript" src="/static/js/upload.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#upload-menu-button").linkbutton('select');
+        })
+    </script>
+{% endblock %}

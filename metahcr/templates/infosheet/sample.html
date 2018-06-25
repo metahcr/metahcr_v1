@@ -1,0 +1,1148 @@
+<div id="infobox">
+    <span id="icon" class="info"></span><span class="text">
+    <strong>MetaHCR information sheet for sample {{ sample.source_mat_id }}</strong></span>
+</div>
+<div id="sample-info-accordion" class="easyui-accordion"
+     data-options="selected:false">
+    <div id="infosheets" title="Metadata"
+         data-options="
+         minimized:false,
+         collapsed:true
+        ">
+        <div id="sample-attributes" class="easyui-panel"
+             style="width: 33%;"
+             data-options="
+                   {% if user.is_staff %}
+                   tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('sample', '', {id: {{ sample.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 0, float: 'left'}
+                    "
+             title="SAMPLE ATTRIBUTES">
+            <table class="infosheettable">
+                <tbody>
+                <tr>
+                    <td class="key">Source Mat. Id.</td>
+                    <td class="value">{{ sample.source_mat_id }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Well Name</td>
+                    <td class="value">{{ sample.samp_well_name }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Win.</td>
+                    <td class="value">{{ sample.win }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Type</td>
+                    <td class="value">{{ sample.samp_type.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Subtype</td>
+                    <td class="value">{{ sample.samp_subtype.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Location Point</td>
+                    <td class="value">{{ sample.samp_location_point.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Temp.</td>
+                    <td class="value">{{ sample.temp }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Pressure</td>
+                    <td class="value">{{ sample.pressure }}</td>
+                </tr>
+                <tr>
+                    <td class="key">TVDSS</td>
+                    <td class="value">{{ sample.samp_tvdss }}</td>
+                </tr>
+                <tr>
+                    <td class="key">MD</td>
+                    <td class="value">{{ sample.samp_md }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Elev.</td>
+                    <td class="value">{{ sample.elev }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Oxy. Stat. Sample</td>
+                    <td class="value">{{ sample.oxy_stat_sample }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Preserv.</td>
+                    <td class="value">{{ sample.samp_preserv }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Transport Cond</td>
+                    <td class="value">{{ sample.samp_transport_cond_duration }}; {{ sample.samp_transport_cond_temp }} C</td>
+                </tr>
+                <tr>
+                    <td class="key">Store Temp.</td>
+                    <td class="value">{{ sample.samp_store_temp }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Store Dur.</td>
+                    <td class="value">{{ sample.samp_store_dur }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Store Loc.</td>
+                    <td class="value">{{ sample.samp_store_loc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">VWA DNA Extr.</td>
+                    <td class="value">{{ sample.samp_vwa_dna_extr }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Organism Count</td>
+                    <td class="value">{{ sample.organism_count }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Org. Count QPCR Info</td>
+                    <td class="value">{{ sample.organism_count_qpcr_info }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Misc. Param.</td>
+                    <td class="value">{{ sample.misc_param }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Additional Info.</td>
+                    <td class="value">{{ sample.additional_info }}</td>
+                </tr>
+                <tr>
+                    <td class="key">RC Dist. from Water Contact</td>
+                    <td class="value">{{ sample.rc_distance_from_hc_water_contact }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Comment</td>
+                    <td class="value">{{ sample.samp_comment }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Description</td>
+                    <td class="value">{{ sample.samp_description }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Location Comment</td>
+                    <td class="value">{{ sample.samp_location_comment }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Location Reference</td>
+                    <td class="value">{{ sample.samp_location_reference }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Location Reservoir Name</td>
+                    <td class="value">{{ sample.samp_location_reservoir_name }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Name</td>
+                    <td class="value">{{ sample.samp_name }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Name Alias</td>
+                    <td class="value">{{ sample.samp_name_alias }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Material Provider</td>
+                    <td class="value">{{ sample.material_provider.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Material Internal External</td>
+                    <td class="value">{{ sample.material_internal_external.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Material Type</td>
+                    <td class="value">{{ sample.material_type.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Surface Sampling Location</td>
+                    <td class="value">{{ sample.surface_sampling_location.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Well Type Classification</td>
+                    <td class="value">{{ sample.well_type_classification.value }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="sample-water-chemistry" class="easyui-panel"
+             style="width: 33%;"
+             data-options="
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 'auto', float: 'left'}
+                    "
+            title="WATER CHEMISTRY">
+            <table class="infosheettable">
+                <tbody>
+                <tr>
+                    <td class="key">Analysis Date</td>
+                    <td class="value">{{ water_chemistry.wc_analysis_date }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Ph</td>
+                    <td class="value">{{ water_chemistry.ph }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Samp. Salinity</td>
+                    <td class="value">{{ water_chemistry.samp_salinity}}</td>
+                </tr>
+                <tr>
+                    <td class="key">Alkalinity</td>
+                    <td class="value">{{ water_chemistry.alkalinity }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Sulfate</td>
+                    <td class="value">{{ water_chemistry.sulfate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Sulfide</td>
+                    <td class="value">{{ water_chemistry.sulfide }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Tot. Sulfur</td>
+                    <td class="value">{{ water_chemistry.tot_sulfur }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Nitrate</td>
+                    <td class="value">{{ water_chemistry.nitrate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Nitrite</td>
+                    <td class="value">{{ water_chemistry.nitrite }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Ammonium</td>
+                    <td class="value">{{ water_chemistry.ammonium }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Tot. Nitro</td>
+                    <td class="value">{{ water_chemistry.tot_nitro }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Diss. Iron</td>
+                    <td class="value">{{ water_chemistry.diss_iron }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Sodium</td>
+                    <td class="value">{{ water_chemistry.sodium }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Potassium</td>
+                    <td class="value">{{ water_chemistry.potassium }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Magnesium</td>
+                    <td class="value">{{ water_chemistry.magnesium }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Calcium</td>
+                    <td class="value">{{ water_chemistry.calcium }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Tot. Iron</td>
+                    <td class="value">{{ water_chemistry.tot_iron }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Diss. Org. Carb.</td>
+                    <td class="value">{{ water_chemistry.diss_org_carb }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Diss. Inorg. Carb.</td>
+                    <td class="value">{{ water_chemistry.diss_inorg_carb }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Diss. Inorg. Phosp.</td>
+                    <td class="value">{{ water_chemistry.diss_inorg_phosp }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Tot. Phosp.</td>
+                    <td class="value">{{ water_chemistry.tot_phosp }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Suspend Solids</td>
+                    <td class="value">{{ water_chemistry.suspend_solids }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Density</td>
+                    <td class="value">{{ water_chemistry.density }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Diss. Carb. Dioxide</td>
+                    <td class="value">{{ water_chemistry.diss_carb_dioxide }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Diss. Oxygen</td>
+                    <td class="value">{{ water_chemistry.diss_oxygen }}</td>
+                </tr>
+                <tr>
+                    <td class="key">VFA</td>
+                    <td class="value">{{ water_chemistry.vfa }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Benzene</td>
+                    <td class="value">{{ water_chemistry.benzene }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Toluene</td>
+                    <td class="value">{{ water_chemistry.toluene }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Ethyl Benzene</td>
+                    <td class="value">{{ water_chemistry.ethylbenzene }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Xylene</td>
+                    <td class="value">{{ water_chemistry.xylene }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Sulfate FW</td>
+                    <td class="value">{{ water_chemistry.sulfate_fw }}</td>
+                </tr>
+                <tr>
+                    <td class="key">VFA FW</td>
+                    <td class="value">{{ water_chemistry.vfa_fw }}</td>
+                </tr>
+                <tr>
+                    <td class="key">VFA Acetate</td>
+                    <td class="value">{{ water_chemistry.vfa_acetate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Additional Carbon Source</td>
+                    <td class="value">{{ water_chemistry.additional_carbon_source }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Aluminum</td>
+                    <td class="value">{{ water_chemistry.aluminum }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Barium</td>
+                    <td class="value">{{ water_chemistry.barium }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Bicarbonate</td>
+                    <td class="value">{{ water_chemistry.bicarbonate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Boron</td>
+                    <td class="value">{{ water_chemistry.boron }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Bromide</td>
+                    <td class="value">{{ water_chemistry.bromide }}</td>
+                </tr>
+                <tr>
+                    <td class="key">VFA Butyrate</td>
+                    <td class="value">{{ water_chemistry.vfa_butyrate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Carbonate</td>
+                    <td class="value">{{ water_chemistry.carbonate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Chloride</td>
+                    <td class="value">{{ water_chemistry.chloride }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Cobalt</td>
+                    <td class="value">{{ water_chemistry.cobalt }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Conductivity</td>
+                    <td class="value">{{ water_chemistry.conductivity }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Fluorine</td>
+                    <td class="value">{{ water_chemistry.fluorine }}</td>
+                </tr>
+                <tr>
+                    <td class="key">VFA Formate</td>
+                    <td class="value">{{ water_chemistry.vra_formate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">H2PO4</td>
+                    <td class="value">{{ water_chemistry.h2po4 }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Hydroxide</td>
+                    <td class="value">{{ water_chemistry.hydroxde }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Lithium</td>
+                    <td class="value">{{ water_chemistry.lithium }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Manganese</td>
+                    <td class="value">{{ water_chemistry.manganese }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Molybdenum</td>
+                    <td class="value">{{ water_chemistry.molybdenum }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Napthenic Acids</td>
+                    <td class="value">{{ water_chemistry.napthenic_acids }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Nickel</td>
+                    <td class="value">{{ water_chemistry.nickel }}</td>
+                </tr>
+                <tr>
+                    <td class="key">VFA Proprionate</td>
+                    <td class="value">{{ water_chemistry.vfa_proprionate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Resistivity</td>
+                    <td class="value">{{ water_chemistry.resistivity }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Silicon</td>
+                    <td class="value">{{ water_chemistry.silicon }}</td>
+                </tr>
+                <tr>
+                    <td class="key">SG Aqueous Phase</td>
+                    <td class="value">{{ water_chemistry.sg_aqueous_phase }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Strontium</td>
+                    <td class="value">{{ water_chemistry.strontium }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Thiosulfate</td>
+                    <td class="value">{{ water_chemistry.thiosulfate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Comment</td>
+                    <td class="value">{{ water_chemistry.wc_comment }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Reference</td>
+                    <td class="value">{{ water_chemistry.wc_reference }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="sample-production-data" class="easyui-panel"
+             style="width: 33%;"
+             data-options="
+                    {% if user.is_staff %}
+                    tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('production-data', '', {id: {{ sample.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 'auto', float: 'left'}
+                    "
+             title="PRODUCTION DATA">
+            <table class="infosheettable">
+                <tbody>
+                <tr>
+                    <td class="key">Production Start Date></td>
+                    <td class="value">{{ production_data_at_time_of_sampling.prod_start_date }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Production Rate</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.prod_rate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Water Production Rate</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.water_production_rate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Water Cut</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.water_cut }}</td>
+                </tr>
+                <tr>
+                    <td class="key">IWF</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.iwf }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Add. Recov. Method</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.add_recov_method.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">IW BT Date Well</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.iw_bt_date_well }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Biocide</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.biocide }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Biocide Admin. Method</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.biocide_admin_method }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Chem. Treatment</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.chem_treatment }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Chem. Treatment Method</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.chem_treatment_method }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Samp. Loc. Corr. Rate</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.samp_loc_corr_rate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Gas Rate</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.gas_rate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Oil Rate</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.oil_rate }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Comment</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.comment }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Reference</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.reference }}</td>
+                </tr>
+                <tr>
+                    <td class="key">PW Per Day</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.pw_per_day }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Prod. Conn. To Injctr.</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.prod_conn_to_injctr }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Gas Oil Ratio</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.gas_oil_ratio }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Salinity</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.salinity.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Operator</td>
+                    <td class="value">{{ production_data_at_time_of_sampling.operator }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="sample-environment" class="easyui-panel"
+             style="width: 33%;"
+             data-options="
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 0, float: 'left'}
+                    "
+             title="ENVIRONMENT METADATA">
+            <table class="infosheettable">
+                <tbody>
+                <tr>
+                    <td class="key">Collection Date</td>
+                    <td class="value">{{ environment.collection_date }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Latitude</td>
+                    <td class="value">{{ environment.latitude }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Longitude</td>
+                    <td class="value">{{ environment.longitude }}</td>
+                </tr>
+                {% if environment.latitude and environment.longitude %}
+                    <tr>
+                        <td class="key">Google Map</td>
+                        <td class="value"><a href="#" class="easyui-linkbutton"
+                                             data-options="iconCls: 'google-maps'"
+                                             onclick="browse_show_map({{ environment.latitude }}, {{ environment.longitude }})">Map</a></td>
+                    </tr>
+                {% endif %}
+                <tr>
+                    <td class="key">Country</td>
+                    <td class="value">{{ environment.country }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Region</td>
+                    <td class="value">{{ environment.region }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Alt. Elev.</td>
+                    <td class="value">{{ environment.alt_elev }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Depth</td>
+                    <td class="value">{{ environment.depth }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Env. Biome</td>
+                    <td class="value">{{ environment.env_biome.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Env. Feature</td>
+                    <td class="value">{{ environment.env_feature.value }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Env. Material</td>
+                    <td class="value">{{ environment.env_material.value }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="sample-hydrocarbon-chemistry" class="easyui-panel"
+             style="width: 33%;"
+             data-options="
+                    {% if user.is_staff %}
+                    tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('hydrocarbon-chemistry', '', {id: {{ sample.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 'auto', float: 'left'}
+                    "
+             title="HYDROCARBON CHEMISTRY">
+            <table class="infosheettable">
+                <tbody>
+                <tr>
+                    <td class="key">Analysis Date</td>
+                    <td class="value">{{ hydrocarbon_chemistry.hc_analysis_date }}</td>
+                </tr>
+                <tr>
+                    <td class="key">API</td>
+                    <td class="value">{{ hydrocarbon_chemistry.api }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Tan.</td>
+                    <td class="value">{{ hydrocarbon_chemistry.tan }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Viscosity</td>
+                    <td class="value">{{ hydrocarbon_chemistry.viscosity }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Saturates PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.saturates_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Aromatics PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.aromatics_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Resins PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.resins_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Asphaltenes PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.asphaltenes_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Methane PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.methane_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Napth. PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.naph_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Olef. PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.olef_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Paraf. PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.paraf_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Wax PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.wax_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">C12 C19</td>
+                    <td class="value">{{ hydrocarbon_chemistry.c12_c19 }}</td>
+                </tr>
+                <tr>
+                    <td class="key">C20 C35</td>
+                    <td class="value">{{ hydrocarbon_chemistry.c20_c35 }}</td>
+                </tr>
+                <tr>
+                    <td class="key">C2 C6</td>
+                    <td class="value">{{ hydrocarbon_chemistry.c2_c6 }}</td>
+                </tr>
+                <tr>
+                    <td class="key">C36 Plus</td>
+                    <td class="value">{{ hydrocarbon_chemistry.c36_plus }}</td>
+                </tr>
+                <tr>
+                    <td class="key">C7 C11</td>
+                    <td class="value">{{ hydrocarbon_chemistry.c7_c11 }}</td>
+                </tr>
+                <tr>
+                    <td class="key">MAH PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.mah_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">PAH PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.pah_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Polysulfides PC</td>
+                    <td class="value">{{ hydrocarbon_chemistry.polysulfides_pc }}</td>
+                </tr>
+                <tr>
+                    <td class="key">SG Oil Phase</td>
+                    <td class="value">{{ hydrocarbon_chemistry.sg_oil_phase }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Comment</td>
+                    <td class="value">{{ hydrocarbon_chemistry.comment }}</td>
+                </tr>
+                <tr>
+                    <td class="key">Reference</td>
+                    <td class="value">{{ hydrocarbon_chemistry.reference }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% if not sga %}
+        <div title="Single Gene Analysis (select under Sample if present)"
+             data-options="selected: false,collapsible: false">
+        </div>
+    {% else %}
+        <div title="Single Gene Analysis {% if sga.upload_date %}- Uploaded on {{ sga.upload_date }} by {{ sga.uploaded_by }}{% endif %}"
+             data-options="
+                selected: true,
+">
+        <div id="infosheets" title="Single Gene Analysis performed on {{ sga.analysis_date|default:"No Date Available" }}" data-options="selected: true">
+            <div id="sample-sga-biological-analysis" class="easyui-panel"
+                 style="width: 33%;"
+                 data-options="
+                    {% if user.is_staff %}
+                    tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('sga', '', {id: {{ sga.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 'auto', float: 'left'}
+                    "
+                 title="BIOLOGICAL ANALYSIS ATTRIBUTES">
+                <table class="infosheettable">
+                    <tbody>
+                    <tr>
+                        <td class="key">Sample Analysis Name</td>
+                        <td class="value">{{ sga.samp_anal_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Analysis Name</td>
+                        <td class="value">{{ sga.analysis_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Type</td>
+                        <td class="value">{{ sga.type.value }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Seq. Method</td>
+                        <td class="value">{{ sga.seq_meth }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Seq. Quality Filtering Method</td>
+                        <td class="value">{{ sga.seq_quality_filtering_meth }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Mid Names</td>
+                        <td class="value">{{ sga.mid_names }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Mid</td>
+                        <td class="value">{{ sga.mid }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Nucl. Acid Ext.</td>
+                        <td class="value">{{ sga.nucl_acid_ext }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Adapters</td>
+                        <td class="value">{{ sga.adapters }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Nucl. Acid Amp.</td>
+                        <td class="value">{{ sga.nucl_acid_amp }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Url</td>
+                        <td class="value">{{ sga.url }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Reads Count</td>
+                        <td class="value">{{ sga.reads_count }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Comment</td>
+                        <td class="value">{{ sga.seq_comment }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Reference</td>
+                        <td class="value">{{ sga.seq_reference }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Status Id</td>
+                        <td class="value">{{ sga.status_id }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Sequencing Center</td>
+                        <td class="value">{{ sga.sequencing_center }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Taxonomic Group</td>
+                        <td class="value">{{ sga.taxonomic_group }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Upload Date</td>
+                        <td class="value">{{ sga.upload_date }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Uploaded By</td>
+                        <td class="value">{{ sga.uploaded_by }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="sample-single-gene-analysis" class="easyui-panel"
+                 style="width: 33%;"
+                 data-options="
+                    {% if user.is_staff %}
+                    tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('sga', '', {id: {{ sga.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 'auto', float: 'left'}
+                    "
+                 title="SINGLE GENE ANALYSIS ATTRIBUTES">
+                <table class="infosheettable">
+                    <tbody>
+                    <tr>
+                        <td class="key">Chimera Check</td>
+                        <td class="value">{{ sga.chimera_check }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Target Gene</td>
+                        <td class="value">{{ sga.target_gene.value }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Target Subfragment</td>
+                        <td class="value">{{ sga.target_subfragment }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">PCR Primers</td>
+                        <td class="value">{{ sga.pcr_primers }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">PCR Cond.</td>
+                        <td class="value">{{ sga.pcr_cond }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">SOP</td>
+                        <td class="value">{{ sga.sop }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Nested PCR Required</td>
+                        <td class="value">{{ sga.nested_pcr_required }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+        <div title="Single Gene Analysis Organisms {% if sga.upload_date %}- Uploaded on {{ sga.upload_date }} by {{ sga.uploaded_by }} {% endif %}" data-options="selected: false">
+            <table id="single_gene_analysis_organisms"
+                   class="easyui-datagrid"
+                   url="{%  url 'browse_sample_sgr_pages' %}"
+                   method="get"
+                   data-options="
+                        striped: true,
+                        idField: 'id',
+                        remoteFilter: true,
+                        fitColumns: true,
+                        pagination: true,
+                        pageSize: 10,
+                        singleSelect: true
+                   ">
+                <thead>
+                <tr>
+                    <th data-options="field:'superkingdom'">Kingdom</th>
+                    <th data-options="field:'phylum'">Phylum</th>
+                    <th data-options="field:'bio_class'">Class</th>
+                    <th data-options="field:'bio_order'">Order</th>
+                    <th data-options="field:'family'">Family</th>
+                    <th data-options="field:'genus'">Genus</th>
+                    <th data-options="field:'species'">Species</th>
+                    <th data-options="field:'strain'">Strain</th>
+                    <th data-options="field:'score'">Abundance %</th>
+                    <th data-options="field:'metabolism_type'">Metabolism Type</th>
+                    <th data-options="field:'risk'">Threat</th>
+                </tr>
+                </thead>
+
+            </table>
+        </div>
+    {% endif %}
+    {% if not mga %}
+        <div title="Metagenome Analysis (select under Sample if present)" data-options="selected: false, collapsible: false">
+        </div>
+    {% else %}
+        <div title="Metagenome Analysis {% if mga.upload_date %}- Uploaded on {{ mga.upload_date }} by {{ mga.uploaded_by }}{% endif %}"
+             data-options="
+                selected: true,
+">
+            <div id="infosheets" title="Metagenome Analysis performed on {{ mga.analysis_date|default:"No Date Available" }}" data-options="selected: true">
+                <div id="sample-mga-biological-analysis" class="easyui-panel"
+                     style="width: 33%;"
+                     data-options="
+                        {% if user.is_staff %}
+                        tools:[
+                            {
+                                iconCls:'icon-application-edit', handler:function(){edit_infosheet('mga', '', {id: {{ mga.id }} }, false);}
+                            }
+                        ],
+                        {% endif %}
+                        headerCls: 'infosheet-subheader',
+                        style: {'margin-left': 'auto', float: 'left'}
+                        "
+                     title="BIOLOGICAL ANALYSIS ATTRIBUTES">
+                    <table class="infosheettable">
+                    <tbody>
+                    <tr>
+                        <td class="key">Sample Analysis Name</td>
+                        <td class="value">{{ mga.samp_anal_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Analysis Name</td>
+                        <td class="value">{{ mga.analysis_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Type</td>
+                        <td class="value">{{ mga.type.value }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Sample Anal. Name</td>
+                        <td class="value">{{ mga.samp_anal_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Seq. Method</td>
+                        <td class="value">{{ mga.seq_meth }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Seq. Quality Filtering Method</td>
+                        <td class="value">{{ mga.seq_quality_filtering_meth }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Mid Names</td>
+                        <td class="value">{{ mga.mid_names }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Mid</td>
+                        <td class="value">{{ mga.mid }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Nucl. Acid Ext.</td>
+                        <td class="value">{{ mga.nucl_acid_ext }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Adapeters</td>
+                        <td class="value">{{ mga.adapters }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Nucl. Acid Amp.</td>
+                        <td class="value">{{ mga.nucl_acid_amp }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Url</td>
+                        <td class="value">{{ mga.url }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Reads Count</td>
+                        <td class="value">{{ mga.reads_count }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Comment</td>
+                        <td class="value">{{ mga.seq_comment }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Reference</td>
+                        <td class="value">{{ mga.seq_reference }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Status Id</td>
+                        <td class="value">{{ mga.status_id }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Sequencing Center</td>
+                        <td class="value">{{ mga.sequencing_center }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Taxonomic Group</td>
+                        <td class="value">{{ mga.taxonomic_group }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Upload Date</td>
+                        <td class="value">{{ mga.upload_date }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Uploaded By</td>
+                        <td class="value">{{ mga.uploaded_by }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div id="sample-metagenome-analysis" class="easyui-panel"
+                     style="width: 33%;"
+                     data-options="
+                    {% if user.is_staff %}
+                    tools:[
+                        {
+                            iconCls:'icon-application-edit', handler:function(){edit_infosheet('mga', '', {id: {{ mga.id }} }, false);}
+                        }
+                    ],
+                    {% endif %}
+                    headerCls: 'infosheet-subheader',
+                    style: {'margin-left': 'auto', float: 'left'}
+                    "
+                         title="METAGENOME ATTRIBUTES">
+                    <table class="infosheettable">
+                    <tbody>
+                    <tr>
+                        <td class="key">Assembly</td>
+                        <td class="value">{{ mga.assembly }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Annot. Source</td>
+                        <td class="value">{{ mga.annot_source }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Assembly Name</td>
+                        <td class="value">{{ mga.assembly_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Assembly Size</td>
+                        <td class="value">{{ mga.assembly_size }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Contig Count</td>
+                        <td class="value">{{ mga.contig_count }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Gene Count</td>
+                        <td class="value">{{ mga.gene_count }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Library Method</td>
+                        <td class="value">{{ mga.library_method }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Library Size</td>
+                        <td class="value">{{ mga.library_size }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Vector</td>
+                        <td class="value">{{ mga.vector }}</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Total Sequence Length</td>
+                        <td class="value">{{ mga.total_sequence_length }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {%  if not mga %}
+        <div title="Metagenome Results" data-options="selected: false, collapsible: false">
+        </div>
+    {% else %}
+        <div title="Metagenome Results" data-options="selected: false, collapsible: true">
+            <table id="metagenome_analysis_genes"
+                   class="easyui-datagrid"
+                   url="{% url 'metagenome_analysis_genes_pages' %}"
+                   method="get"
+                   data-options="
+                        striped:true,
+                        idField: 'id',
+                        remoteFilter: true,
+                        fitColumns: true,
+                        pagination:true,
+                        pageSize:10,
+                        singleSelect: true
+                         ">
+                <thead>
+                <tr>
+                    <th data-options="field:'gene_name'">Gene Name</th>
+                    <th data-options="field:'scaffold_id'">Scaffold ID</th>
+                    <th data-options="field:'scaffold_length'">Length</th>
+                    <th data-options="
+                        field:'cog_id',
+                        formatter:function(value, row, index){
+                            var tooltips;
+                            var cog_ids = row['cog_id'].split(';');
+                            for (var i = 0; i < cog_ids.length; i++) {
+                                tooltips = tooltips + row['cog_function'] + '\r';
+                            };
+                            return '<a class=\'easyui-tooltip\' title=\'' + tooltips + '\'' +' href=\'http://www.ncbi.nlm.nih.gov/cdd/?term='+value+'\'target=\'_blank\'>'+value+'</a>'}">
+                        COG ID</th>
+                    <th data-options="field:'pfam_id',
+       formatter:function(value, row, index){
+       var pfamid = 'pf' + value.substring(4);
+       var tooltip = row['pfam_function'];
+       return '<a class=\'easyui-tooltip\' title=\'' + tooltip + '\'' +'  href=\'http://pfam.xfam.org/family/'+pfamid+'\'target=\'_blank\'>'+value+'</a>'}">
+                    Pfam ID</th>
+                    <th data-options="field:'ec_number',
+       formatter:function(value, row, index){
+       var tooltip = row['enzyme_function'];
+       return '<a class=\'easyui-tooltip\' title=\'' + tooltip + '\'' +'  href=\'http://www.genome.jp/dbget-bin/www_bget?'+value+'\'target=\'_blank\'>'+value+'</a>'}">
+                    EC Number</th>
+                    <th data-options="field:'ko_id',
+       formatter:function(value, row, index){
+       var tooltip = row['ko_function'];
+       return '<a class=\'easyui-tooltip\' title=\'' + tooltip + '\'' +'  href=\'http://www.genome.jp/dbget-bin/www_bget?'+value+'\'target=\'_blank\'>'+value+'</a>'}">
+                    KO ID</th>
+{#                    <th data-options="field:'organism__ncbi_taxon_id',#}
+{#       formatter:function(value, row, index){return '<a href=\'http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id='+value+'\'target=\'_blank\'>'+value+'</a>'}">#}
+{#                    Org. Taxon.</th>#}
+                    <th data-options="field:'organism__superkingdom'">Kingdom</th>
+                    <th data-options="field:'organism__phylum'">Phylum</th>
+                    <th data-options="field:'organism__bio_class'">Class</th>
+                    <th data-options="field:'organism__bio_order'">Order</th>
+                    <th data-options="field:'organism__family'">Family</th>
+                    <th data-options="field:'organism__genus'">Genus</th>
+                    <th data-options="field:'organism__species'">Species</th>
+                    <th data-options="field:'organism__strain'">Strain</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    {% endif %}
+
+</div>
+</div>
+
+{% block javascript %}
+    <script type="text/javascript">
+        // These easyui components need to be initialized here or they will not be displayed correctly on the page.
+        // This might be because this template is loaded into an existing page?
+        $('#sample-info-accordion').accordion();
+        $('#sample-attributes').panel();
+        $('#sample-water-chemistry').panel();
+        $('#sample-production-data').panel();
+        $('#sample-environment').panel();
+        $('#sample-hydrocarbon-chemistry').panel();
+        $('#sample-sga-biological-analysis').panel();
+        $('#sample-single-gene-analysis').panel();
+        $('#sample-mga-biological-analysis').panel();
+        $('#sample-metagenome-analysis').panel();
+    </script>
+{% endblock %}

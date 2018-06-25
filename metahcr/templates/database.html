@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} - Available databases{% endblock %}
+{% block content %}
+    <div id ="infobox">
+        <span id="icon" class="info"></span><span class="text">You are currently connected to the <strong>{{ database.default.NAME|default:'Not available' }}</strong> database</span>
+    </div>
+    <div id="table_helper">Please choose a specific database among the list of databases in the table below to use for your current session.</div>
+    <table id="dbtable">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Database Name</th>
+            <th>Database Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for db in databases %}
+            {% if db.name == database.default.NAME %}
+                {% with tr_class=' bold' radio_checked=' checked' %}
+                    <tr class="{% cycle 'even' 'odd' %}{{ tr_class }}">
+                        <td><input type="radio" name="db" value="{{ db.name }}"{{ radio_checked }}></td>
+                        <td>{{ db.name }}</td>
+                        <td>{{ db_description|default:'No description' }}</td>
+                    </tr>
+                {% endwith %}
+            {% else %}
+                {% with tr_class='' radio_checked='' %}
+                    <tr class="{% cycle 'even' 'odd' %}{{ tr_class }}">
+                        <td><input type="radio" name="db" value="{{ db.name }}"{{ radio_checked }}></td>
+                        <td>{{ db.name }}</td>
+                        <td>{{ db_description|default:'No description' }}</td>
+                    </tr>
+                {% endwith %}
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    <div id="table_info">There is a total of {{ entity_managers|length }} databases available.</div>
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript">
+        $(function() {
+            $('#database-menu-button').linkbutton('select');
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,35 @@
+// dot 2.38.0 on Windows 7 6.1
+// SchemaSpy rev 590
+digraph "operation" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "operation" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">operation</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="corr_rate" COLSPAN="3" ALIGN="LEFT">corr_rate</TD></TR>
+      <TR><TD PORT="caliper_penetration_pc" COLSPAN="3" ALIGN="LEFT">caliper_penetration_pc</TD></TR>
+      <TR><TD PORT="p_wo_wall_loss_pc" COLSPAN="3" ALIGN="LEFT">p_wo_wall_loss_pc</TD></TR>
+      <TR><TD PORT="pipeline_metallurgy" COLSPAN="3" ALIGN="LEFT">pipeline_metallurgy</TD></TR>
+      <TR><TD PORT="scale_severity" COLSPAN="3" ALIGN="LEFT">scale_severity</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/operation.html"
+    tooltip="operation"
+  ];
+}

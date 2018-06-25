@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <table>
+        <tr>
+            <td class="top">
+                <img src="/static/images/oil_production3.jpg">
+            </td>
+            <td class="top">
+                <h3>The MetaHCR Project</h3>
+
+                <p>The area of molecular microbiology and metagenomics in particular holds great potential that could be
+                    used in the oil and gas industry. The MetaHCR project aims to be a platform for the cataloguing, storage and analysis of microorganisms that have been identified in hydrocarbon-rich environments, and are related to hydrocarbon degradation, oil souring, metal corrosion and methane emissions.</p>
+                <h4>MetaHCR Milestones</h4>
+                <ul>
+                    <li>Development of a database containing microbial species, taxonomic and functional marker genes identified in the
+                        literature or the analyzed samples
+                    </li>
+                    <li>Implementation of a cyber-infrastructure to be used for data storage, analysis and sharing
+                    </li>
+                    <li>Creation of a user-friendly front-end allowing easy access to the data by the non-expert</li>
+                </ul>
+                <p>
+                    &raquo; Read more about this project on the <a href="/about">about MetaHCR page</a>.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="caption" colspan="1" class="top">
+                Pumpjack during sunset. Monahans, Texas USA, 2013 (Photo: Laura Upshaw)
+            </td>
+        </tr>
+    </table>
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript">
+        $(function () {
+            $('#home-menu-button').linkbutton('select');
+        })
+    </script>
+{% endblock %}

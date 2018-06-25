@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="browse-tabs"
+         class="easyui-tabs" data-options="width:'99%'">
+        <div title="Investigations">
+            <table id="investigation-results"></table>
+        </div>
+        <div title="Samples">
+            <table id="sample-results"></table>
+        </div>
+        <div title="Analyses">
+            <table id="biologicalanalysis-results"></table>
+        </div>
+        <div title="Organisms">
+            <table id="organism-results"></table>
+        </div>
+        <div title="Hydrocarbon Resources">
+            <table id="hydrocarbonresource-results"></table>
+        </div>
+    </div>
+    <div id="infosheets-accordion" class="easyui-accordion" data-options="selected: false">
+    </div>
+    <div id="location-map-window"><div id="location-map" style="height: 100%;"></div>
+    </div>
+    <div id="infosheet-dialog"></div>
+
+{% endblock %}
+
+
+{% block javascript %}
+    <script type="text/javascript" language="javascript" src="/static/js/browse.js"></script>
+    <script type="text/javascript" language="javascript" src="/static/js/show_map.js"></script>
+    <script type="text/javascript">
+        // Make sure the browse menu button is selected.
+        $(function () {
+            $('#browse-menu-button').linkbutton('select');
+        })
+    </script>
+{% endblock %}

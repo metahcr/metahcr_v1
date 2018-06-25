@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'MetaHCR Site Administration' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'MetaHCR administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}
+    <style type="text/css">
+    .m1 {margin: 0 10px 10px; display: block;
+        float: right;}
+    </style>
+    <a href="/" class="m1">Back to MetaHCR Home</a>
+{% endblock %}

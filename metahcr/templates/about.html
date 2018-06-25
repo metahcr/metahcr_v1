@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+            <div id="infobox">
+                <span id="icon" class="info"></span>
+                <span class="text">
+                    {% if app.session.hasFlash %}
+                        {{ app.session.flash }}
+                    {% else %}
+                        The <strong>MetaHCR</strong> project is a knowledge base for microorganisms involved in hydrocarbon degradation, oil souring, metal corrosion and methane emissions
+                    {% endif %}
+                </span>
+            </div>
+            <div id="dashboard_centered">
+                <img src="/static/images/meteor-stct-site.jpg">
+            </div>
+            <div id="dashboard_content">
+                <h3>About MetaHCR</h3>
+                <p>If you use MetaHCR for any published research, please include the following citation: <strong>"MetaHCR: a web-enabled metagenome data management system for hydrocarbon resources"</strong> Peter C. Marks, Marc Bigler, Eric B. Alsop, Bart P. Lomans and Nicolas Tsesmetzis (2017)</p>
+                <h4>MetaHCR Milestones</h4>
+                <p>
+                    <ul>
+                        <li>Development of a database containing microbial species and functional genes identified in the literature or the analyzed samples</li>
+                        <li>Implementation of a cyber-infrastructure to be used across the project for data storage, analysis and sharing</li>
+                        <li>Creation of a user-friendly front-end allowing easy access to the data by the non-expert</li>
+                    </ul>
+                </p>
+                <h4>About the photo - Shell Research - Thornton Research Centre</h4>
+                <p>Old and new building styles at Thornton Shell Research Centre. Thornton Research Centre was one of Shell's main establishments for research and development. The site has now been aquired by the University of Chester and has been renamed as Thornton Science Park. This photograph was taken in 1993 and the author is unknown.</p>
+            </div>
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript">
+        $(function() {
+            $('#about-menu-button').linkbutton('select');
+        })
+    </script>
+{% endblock %}
