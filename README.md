@@ -105,9 +105,8 @@ Run the Django web server:
 
 The MetaHCR application can now be accessed by opening a browser (Chrome
 is preferred but other modern browsers should work) and entering the
-following URL: [http://localhost:8000 (or http://127.0.0.1:8000](http://localhost:8000)
-(or [http://127.0.0.1:8000](http://127.0.0.1:8000). The MetaHCR home page
-should appear. You must log in to use MetaHCR.
+following URL: <http://localhost:8000> or <http://127.0.0.1:8000>. The MetaHCR
+home page should appear. You must log in to use MetaHCR.
 
 #### Log In
 The project's initial database has a user account that you can use to log in to
