@@ -14,10 +14,10 @@ has data on the following:
 4. 45,906 Organisms
 
 ## Documentation
-* [Users Guide](https://github.com/metahcr/metahcr_v1.0/blob/master/docs/MetaHCRUsersGuide-v1.0.pdf)
-* [Administrators Guide](https://github.com/metahcr/metahcr_v1.0/blob/master/docs/MetaHCRAdminGuide-v1.0.pdf)
-* [Data Descriptions](https://github.com/metahcr/metahcr_v1.0/blob/master/docs/MetaHCRData-v1.0.pdf)
-* [Database Schema Diagrams](https://github.com/metahcr/metahcr_v1.0/blob/master/docs/schemas/index.html)
+* [Users Guide](https://github.com/metahcr/metahcr_v1/blob/master/docs/MetaHCRUsersGuide-v1.0.pdf)
+* [Administrators Guide](https://github.com/metahcr/metahcr_v1/blob/master/docs/MetaHCRAdminGuide-v1.0.pdf)
+* [Data Descriptions](https://github.com/metahcr/metahcr_v1/blob/master/docs/MetaHCRData-v1.0.pdf)
+* [Database Schema Diagrams](https://github.com/metahcr/metahcr_v1/blob/master/docs/schemas/index.html)
 
 ## Installation
 First, using git or the GitHub facilities, download this repository. The
@@ -55,7 +55,7 @@ Restore the database using the following command:
 
 #### Adjust Django settings.py file
 You must modify the Django settings.py file to reflect the password
-that you have chosen for the metahcradmin user. The file is located [here](https://github.com/metahcr/metahcr_v1.0/metahcr/metahcr/settings.py).
+that you have chosen for the metahcradmin user. The file is located [here](https://github.com/metahcr/metahcr_v1/blob/master/metahcr/metahcr/settings.py).
 Change the PASSWORD value in the DATABASES variable to metahcradmin's password. Save the settings.py file.
 
 #### Install Python
@@ -105,8 +105,8 @@ Run the Django web server:
 
 The MetaHCR application can now be accessed by opening a browser (Chrome
 is preferred but other modern browsers should work) and entering the
-following URL: [http:localhost:8000 (or http:127.0.0.1:8000](http:localhost:8000)
-(or [http:127.0.0.1:8000](http:127.0.0.1:8000). The MetaHCR home page
+following URL: [http://localhost:8000 (or http://127.0.0.1:8000](http://localhost:8000)
+(or [http://127.0.0.1:8000](http://127.0.0.1:8000). The MetaHCR home page
 should appear. You must log in to use MetaHCR.
 
 #### Log In
