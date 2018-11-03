@@ -2,7 +2,7 @@
 
 MetaHCR is a web application interface to a relational
 database that stores the inter-relationships amongst
-Hydrocarbon Resouce Samples, their Single Gene and
+Hydrocarbon Resource Samples, their Single Gene and
 Metagenome Analyses and the Organisms found via these
 analyses. Ancillary tables provide metadata.
 
