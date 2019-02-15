@@ -13,6 +13,11 @@ has data on the following:
 3. 492 Biological Analyses - 482 Single Gene and 10 Metagenome
 4. 45,906 Organisms
 
+If you use MetaHCR for any published research, please include the following citation:
+
+[MetaHCR: a web-enabled metagenome data management system for hydrocarbon resources (2017).](https://www.ncbi.nlm.nih.gov/pubmed/30212909)
+Peter C. Marks, Marc Bigler, Eric B. Alsop, Bart P. Lomans and Nicolas Tsesmetzis.
+Database (Oxford). 2018 Jan 1;2018:1-10. doi: 10.1093/database/bay087. PMID: 30212909
 ## Documentation
 * [Users Guide](https://github.com/metahcr/metahcr_v1/blob/master/docs/MetaHCRUsersGuide-v1.0.pdf)
 * [Administrators Guide](https://github.com/metahcr/metahcr_v1/blob/master/docs/MetaHCRAdminGuide-v1.0.pdf)
